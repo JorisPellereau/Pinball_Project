@@ -14,7 +14,7 @@ void crea_matrice(int **matrice_led , int nb_lig , int nb_col) {
     }
 }
 
-void init_motif (int ** matrice_led , int nb_lig , int nb_col , int eeprom * motif  ) {
+void init_motif (int ** matrice_led , int nb_lig , int nb_col , char eeprom * motif  ) {
     int lig , col , masque_motif = 0b00000001;
 
     for(lig = 0 ; lig < nb_lig ; lig ++) {
@@ -25,6 +25,14 @@ void init_motif (int ** matrice_led , int nb_lig , int nb_col , int eeprom * mot
          masque_motif = 0b00000001;
     }
 }
+
+/*unsigned char read_data_i2c(unsigned char data) {
+     i2c_start();
+     data = i2c_read(0);
+     i2c_stop();
+     return data;
+} */
+
 
 void write_mat_ports(int ** matrice_leds , int choix_couleur , int nb_lig , int nb_col ) {
         int lig , col , masque_portD , masque_portAB;
@@ -73,28 +81,12 @@ void all_off() {
     PORTD = 0;
 }
 
-void scroll_droite(int *motif, int nb_affich) {
-    int i = 0, j = 0 , k = 0;
-    int x_pos = 0b10000000;
-    for(i = 0 ; i < nb_affich ; i++) {
-        for(j = 0 ; j <= k ; j++) { // <= a test !
-            PORTD = motif[k-j];
-            PORTA = x_pos;
-            delay_ms(10);
-            PORTD = 0;
-            PORTA = 0;
-            x_pos = x_pos >> 1;
-        }
-        x_pos = 0b10000000;
-        k++;
-    }
+void scroll_droite(char *motif, int nb_affich) {
+
 }
 
-void scroll_gauche(int *motif , int nb_affich) {
-         int a ;
-         a = nb_affich;
-         a = a / 2;
-         motif[0] = 1;
+void scroll_gauche(char *motif , int nb_affich) {
+
 }
 
 void diagnostic() {
@@ -106,4 +98,8 @@ void diagnostic() {
      delay_us(500);
      all_off();
      delay_us(500);
+}
+
+void lecture_EEPROM(char eeprom *motif , int num_col) {
+     PORTA = motif[num_col];    // Affiche sur le PORT A la data en EEPROM selectionné
 }
