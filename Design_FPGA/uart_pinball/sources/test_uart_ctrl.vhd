@@ -6,7 +6,7 @@
 -- Author     :   <JorisPC@JORISP>
 -- Company    : 
 -- Created    : 2019-08-22
--- Last update: 2019/08/29
+-- Last update: 2019/08/30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -184,6 +184,7 @@ begin  -- architecture arch_test_uart_ctrl
 
 
 
+    -- == GOOD REG ==
 
     -- == Write @0x00 <= 0x66 ==
     send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"00", x"66");
@@ -198,13 +199,16 @@ begin  -- architecture arch_test_uart_ctrl
     wait for 1 ms;
 
     -- == Write @0x03 <= 0x39 ==
-    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"03", x"39");   
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"03", x"39");
     wait for 1 ms;
 
     -- == Write @0x04 <= 0x4E ==
     send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"04", x"4E");
     wait for 1 ms;
 
+
+
+    -- == WRONG REG ==
     -- == Write @0xFF <= 0xAB ==
     send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"FF", x"AB");
     wait for 1 ms;
@@ -212,100 +216,49 @@ begin  -- architecture arch_test_uart_ctrl
     -- == Write @0xAA <= 0x69 ==
     send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A1", x"AA", x"69");
     wait for 1 ms;
+
     
-
-
-    wait;
-    -- == Write @0x00 <= 0x55 ==
-    -- Send a first byte
-    tx_data_inj  <= x"A1";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 2nd byte
-    tx_data_inj  <= x"00";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 3rd byte
-    tx_data_inj  <= x"55";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-    -- ==============================
-
+    -- == GOOD REG ==    
+    -- == Read @0x00 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"00", x"00");
     wait for 1 ms;
 
-    -- == SEND 3 GOODS BYTES ==
-    -- Send a first byte
-    tx_data_inj  <= x"A0";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 2nd byte
-    tx_data_inj  <= x"01";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 3rd byte
-    tx_data_inj  <= x"00";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-    -- ==============================
-
+    -- == Read @0x01 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"01", x"00");
     wait for 1 ms;
 
-    -- == WRITE @Reg:0x01 : x"10" ==
-    -- Send a first byte
-    tx_data_inj  <= x"A0";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
+    -- == Read @0x02 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"02", x"00");
+    wait for 1 ms;
 
-    -- Send a 2nd byte
-    tx_data_inj  <= x"01";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
+    -- == Read @0x03 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"03", x"00");
+    wait for 1 ms;
 
-    -- Send a 3rd byte
-    tx_data_inj  <= x"10";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
+    -- == Read @0x04 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"04", x"00");
+    wait for 1 ms;
 
 
+    -- == WRONG REG ==
+     -- == Read @0xFF ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"FF", x"00");
+    wait for 1 ms;
+
+    -- == Read @0xAA ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"A0", x"AA", x"00");
+    wait for 1 ms;
 
 
-    -- ==============================
 
-    wait for 0.5 ms;
+    -- == WRONG COMMAND /= 0xA0 & 0xA1 ==
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"BB", x"00", x"66");
+    wait for 1 ms;
 
-    -- == SEND 3 GOODS BYTES ==
-    -- Send a first byte
-    tx_data_inj  <= x"A0";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 2nd byte
-    tx_data_inj  <= x"BB";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-
-    -- Send a 3rd byte
-    tx_data_inj  <= x"DE";
-    wait for 2*C_Clock_period;
-    start_tx_inj <= '1', '0' after 2*C_Clock_period;
-    wait until rising_edge(tx_done_inj) for 10 ms;
-    -- ==============================
-
+    send_uart_bytes_proc(tx_data_inj, start_tx_inj, tx_done_inj, x"52", x"99", x"02");
+    wait for 1 ms;
+    
+    
 
     report "end of simu";
     wait;
