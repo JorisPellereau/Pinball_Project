@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-08-30
+-- Last update: 2019-08-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -50,9 +50,9 @@ architecture arch_top_pinball of top_pinball is
   -- UART CTRL SIGNALS
   signal addr_reg_ok_s    : std_logic;
   signal reg_data_valid_s : std_logic;
-  signal rdata_reg_s      : std_logic_vector(data_size - 1 downto 0);
-  signal rcvd_addr_reg_s  : std_logic_vector(data_size - 1 downto 0);
-  signal wdata_reg_s      : std_logic_vector(data_size - 1 downto 0);
+  signal rdata_reg_s      : std_logic_vector(C_data_size - 1 downto 0);
+  signal rcvd_addr_reg_s  : std_logic_vector(C_data_size - 1 downto 0);
+  signal wdata_reg_s      : std_logic_vector(C_data_size - 1 downto 0);
   signal rw_reg_s         : std_logic;
   signal start_rw_reg_s   : std_logic;
 

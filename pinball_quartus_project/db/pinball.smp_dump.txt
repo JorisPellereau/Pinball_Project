@@ -1,0 +1,20 @@
+
+State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm
+Name tx_fsm.STOP tx_fsm.STOP_BIT_GEN tx_fsm.PARITY_GEN tx_fsm.DATA_GEN tx_fsm.START_BIT_GEN tx_fsm.LATCH_INPUTS tx_fsm.IDLE 
+tx_fsm.IDLE 0 0 0 0 0 0 0 
+tx_fsm.LATCH_INPUTS 0 0 0 0 0 1 1 
+tx_fsm.START_BIT_GEN 0 0 0 0 1 0 1 
+tx_fsm.DATA_GEN 0 0 0 1 0 0 1 
+tx_fsm.PARITY_GEN 0 0 1 0 0 0 1 
+tx_fsm.STOP_BIT_GEN 0 1 0 0 0 0 1 
+tx_fsm.STOP 1 0 0 0 0 0 1 
+
+State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm
+Name rx_fsm.STOP rx_fsm.READ_STOP_BIT rx_fsm.READ_PARITY rx_fsm.READ_DATA rx_fsm.READ_START rx_fsm.WAIT_START rx_fsm.IDLE 
+rx_fsm.IDLE 0 0 0 0 0 0 0 
+rx_fsm.WAIT_START 0 0 0 0 0 1 1 
+rx_fsm.READ_START 0 0 0 0 1 0 1 
+rx_fsm.READ_DATA 0 0 0 1 0 0 1 
+rx_fsm.READ_PARITY 0 0 1 0 0 0 1 
+rx_fsm.READ_STOP_BIT 0 1 0 0 0 0 1 
+rx_fsm.STOP 1 0 0 0 0 0 1 

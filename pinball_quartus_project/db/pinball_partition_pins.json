@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "tx_uart_o",
+					"strict" : false
+				},
+				{
+					"name" : "clock_i",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "rx_uart_i",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
