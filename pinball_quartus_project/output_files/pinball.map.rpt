@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pinball
-Sat Aug 31 12:35:04 2019
+Sun Sep 01 18:13:46 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -15,17 +15,18 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm
   9. State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst
- 14. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst
- 15. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst
- 16. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst
- 17. Parameter Settings for User Entity Instance: reg_ctrl:reg_ctrl_inst
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst
+ 15. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst
+ 16. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst
+ 17. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst
+ 18. Parameter Settings for User Entity Instance: reg_ctrl:reg_ctrl_inst
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -51,16 +52,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 31 12:35:04 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 01 18:13:46 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
 ; Top-level Entity Name              ; top_pinball                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 328                                         ;
-;     Total combinational functions  ; 247                                         ;
-;     Dedicated logic registers      ; 220                                         ;
-; Total registers                    ; 220                                         ;
-; Total pins                         ; 4                                           ;
+; Total logic elements               ; 342                                         ;
+;     Total combinational functions  ; 261                                         ;
+;     Dedicated logic registers      ; 229                                         ;
+; Total registers                    ; 229                                         ;
+; Total pins                         ; 6                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -193,30 +194,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 328           ;
+; Estimated Total logic elements              ; 342           ;
 ;                                             ;               ;
-; Total combinational functions               ; 247           ;
+; Total combinational functions               ; 261           ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 128           ;
-;     -- 3 input functions                    ; 23            ;
-;     -- <=2 input functions                  ; 96            ;
+;     -- 4 input functions                    ; 125           ;
+;     -- 3 input functions                    ; 29            ;
+;     -- <=2 input functions                  ; 107           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 221           ;
-;     -- arithmetic mode                      ; 26            ;
+;     -- normal mode                          ; 223           ;
+;     -- arithmetic mode                      ; 38            ;
 ;                                             ;               ;
-; Total registers                             ; 220           ;
-;     -- Dedicated logic registers            ; 220           ;
+; Total registers                             ; 229           ;
+;     -- Dedicated logic registers            ; 229           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 4             ;
+; I/O pins                                    ; 6             ;
 ;                                             ;               ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; clock_i~input ;
-; Maximum fan-out                             ; 220           ;
-; Total fan-out                               ; 1642          ;
-; Average fan-out                             ; 3.46          ;
+; Maximum fan-out                             ; 229           ;
+; Total fan-out                               ; 1721          ;
+; Average fan-out                             ; 3.43          ;
 +---------------------------------------------+---------------+
 
 
@@ -225,12 +226,12 @@ refer to the applicable agreement for further details.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Entity Name ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
-; |top_pinball                     ; 247 (0)             ; 220 (0)                   ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |top_pinball                                                   ; top_pinball ; work         ;
+; |top_pinball                     ; 261 (0)             ; 229 (0)                   ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |top_pinball                                                   ; top_pinball ; work         ;
 ;    |reg_ctrl:reg_ctrl_inst|      ; 55 (55)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|reg_ctrl:reg_ctrl_inst                            ; reg_ctrl    ; work         ;
-;    |uart_ctrl:uart_ctrl_inst|    ; 192 (0)             ; 148 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst                          ; uart_ctrl   ; work         ;
-;       |rx_uart:rx_uart_inst|     ; 71 (71)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst     ; rx_uart     ; work         ;
-;       |tx_uart:tx_uart_inst|     ; 56 (56)             ; 36 (36)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst     ; tx_uart     ; work         ;
-;       |uart_mngt:uart_mngt_inst| ; 65 (65)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst ; uart_mngt   ; work         ;
+;    |uart_ctrl:uart_ctrl_inst|    ; 206 (0)             ; 157 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst                          ; uart_ctrl   ; work         ;
+;       |rx_uart:rx_uart_inst|     ; 79 (79)             ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst     ; rx_uart     ; work         ;
+;       |tx_uart:tx_uart_inst|     ; 61 (61)             ; 38 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst     ; tx_uart     ; work         ;
+;       |uart_mngt:uart_mngt_inst| ; 66 (66)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst ; uart_mngt   ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -267,17 +268,28 @@ Encoding Type:  One-Hot
 +----------------------+-------------+----------------------+--------------------+------------------+-------------------+-------------------+-------------+
 
 
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++------------------------------------------------------------------+----------------------------------------+
+; Register name                                                    ; Reason for Removal                     ;
++------------------------------------------------------------------+----------------------------------------+
+; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.PARITY_GEN  ; Stuck at GND due to stuck port data_in ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_PARITY ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2                            ;                                        ;
++------------------------------------------------------------------+----------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 220   ;
-; Number of registers using Synchronous Clear  ; 53    ;
+; Total registers                              ; 229   ;
+; Number of registers using Synchronous Clear  ; 65    ;
 ; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 220   ;
+; Number of registers using Asynchronous Clear ; 229   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 155   ;
+; Number of registers using Clock Enable       ; 163   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -292,31 +304,31 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[4]                            ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[3]   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[7]  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][7] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][0] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][1] ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[6]           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[5]      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[1]          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[1]   ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[2]                            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[3]   ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[0]   ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector0            ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector3            ;
-; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector2            ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector3            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[5]                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[2] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[0]     ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[8]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][7]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][4]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][0]   ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[8]             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[4]        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[2]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[0]     ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[5]                              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[6]     ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[0]     ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector6              ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector5              ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector1              ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector5              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -325,8 +337,8 @@ Encoding Type:  One-Hot
 ; Parameter Name  ; Value     ; Type                                    ;
 +-----------------+-----------+-----------------------------------------+
 ; stop_bit_number ; 1         ; Signed Integer                          ;
-; parity          ; even      ; Enumerated                              ;
-; baudrate        ; b115200   ; Enumerated                              ;
+; parity          ; none      ; Enumerated                              ;
+; baudrate        ; b9600     ; Enumerated                              ;
 ; data_size       ; 8         ; Signed Integer                          ;
 ; polarity        ; '1'       ; Enumerated                              ;
 ; first_bit       ; lsb_first ; Enumerated                              ;
@@ -351,8 +363,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name  ; Value     ; Type                                                         ;
 +-----------------+-----------+--------------------------------------------------------------+
 ; stop_bit_number ; 1         ; Signed Integer                                               ;
-; parity          ; even      ; Enumerated                                                   ;
-; baudrate        ; b115200   ; Enumerated                                                   ;
+; parity          ; none      ; Enumerated                                                   ;
+; baudrate        ; b9600     ; Enumerated                                                   ;
 ; data_size       ; 8         ; Signed Integer                                               ;
 ; polarity        ; '1'       ; Enumerated                                                   ;
 ; first_bit       ; lsb_first ; Enumerated                                                   ;
@@ -367,8 +379,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name  ; Value     ; Type                                                         ;
 +-----------------+-----------+--------------------------------------------------------------+
 ; stop_bit_number ; 1         ; Signed Integer                                               ;
-; parity          ; even      ; Enumerated                                                   ;
-; baudrate        ; b115200   ; Enumerated                                                   ;
+; parity          ; none      ; Enumerated                                                   ;
+; baudrate        ; b9600     ; Enumerated                                                   ;
 ; data_size       ; 8         ; Signed Integer                                               ;
 ; polarity        ; '1'       ; Enumerated                                                   ;
 ; first_bit       ; lsb_first ; Enumerated                                                   ;
@@ -392,25 +404,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 4                           ;
-; cycloneiii_ff         ; 220                         ;
-;     CLR               ; 40                          ;
-;     CLR SCLR          ; 24                          ;
+; boundary_port         ; 6                           ;
+; cycloneiii_ff         ; 229                         ;
+;     CLR               ; 37                          ;
+;     CLR SCLR          ; 28                          ;
 ;     CLR SLD           ; 1                           ;
 ;     ENA CLR           ; 126                         ;
-;     ENA CLR SCLR      ; 29                          ;
-; cycloneiii_lcell_comb ; 248                         ;
-;     arith             ; 26                          ;
-;         2 data inputs ; 25                          ;
+;     ENA CLR SCLR      ; 37                          ;
+; cycloneiii_lcell_comb ; 262                         ;
+;     arith             ; 38                          ;
+;         2 data inputs ; 37                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 222                         ;
+;     normal            ; 224                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 67                          ;
-;         3 data inputs ; 22                          ;
-;         4 data inputs ; 128                         ;
+;         2 data inputs ; 66                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 125                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.13                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.14                        ;
 +-----------------------+-----------------------------+
 
 
@@ -429,12 +441,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Aug 31 12:34:53 2019
+    Info: Processing started: Sun Sep 01 18:13:33 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pinball -c pinball
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/pinball_project/design_fpga/top_pinball/top_pinball.vhd
-    Info (12022): Found design unit 1: top_pinball-arch_top_pinball File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 47
+    Info (12022): Found design unit 1: top_pinball-arch_top_pinball File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 52
     Info (12023): Found entity 1: top_pinball File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 33
 Info (12021): Found 1 design units, including 0 entities, in source file /documents/github/pinball_project/design_fpga/top_pinball/pkg_pinball.vhd
     Info (12022): Found design unit 1: pkg_pinball File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/pkg_pinball.vhd Line: 28
@@ -459,7 +471,7 @@ Info (12021): Found 2 design units, including 0 entities, in source file /docume
     Info (12022): Found design unit 1: pkg_uart File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 26
     Info (12022): Found design unit 2: pkg_uart-body File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 113
 Info (12127): Elaborating entity "top_pinball" for the top level hierarchy
-Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 67
+Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 75
 Info (12128): Elaborating entity "uart_mngt" for hierarchy "uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 115
 Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(101): object "uart_cmd_ok_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 101
 Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(102): object "uart_cmd_ko_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 102
@@ -467,20 +479,20 @@ Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(108): object "raz_
 Info (12128): Elaborating entity "rx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 145
 Warning (10036): Verilog HDL or VHDL warning at rx_uart.vhd(60): object "start_cnt" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd Line: 60
 Info (12128): Elaborating entity "tx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 163
-Info (12128): Elaborating entity "reg_ctrl" for hierarchy "reg_ctrl:reg_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 91
+Info (12128): Elaborating entity "reg_ctrl" for hierarchy "reg_ctrl:reg_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 101
 Info (13000): Registers with preset signals will power-up high File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/tx_uart.vhd Line: 210
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 341 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 358 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 337 logic cells
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 352 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Sat Aug 31 12:35:04 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4798 megabytes
+    Info: Processing ended: Sun Sep 01 18:13:46 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:27
 
 

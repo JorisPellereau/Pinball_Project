@@ -6,7 +6,7 @@
 -- Author     :   
 -- Company    : 
 -- Created    : 2019-04-24
--- Last update: 2019-05-27
+-- Last update: 2019/08/28
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -71,7 +71,7 @@ package pkg_uart is
     return string;
 
   -- COMPONENTS
-  component tx_rs232 is
+  component tx_uart is
     generic (
       stop_bit_number : integer range 1 to 2 := 1;  -- Number of stop bit
       parity          : t_parity             := even;  -- Type of the parity

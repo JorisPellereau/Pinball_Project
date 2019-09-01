@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-08-31
+-- Last update: 2019-09-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -37,7 +37,12 @@ entity top_pinball is
 
     -- UART INTERFACE
     rx_uart_i : in  std_logic;          -- RX UART input
-    tx_uart_o : out std_logic           -- TX UART output
+    tx_uart_o : out std_logic;          -- TX UART output
+
+    -- DEBUG PURPUSE
+    debug_rx_uart_o : out std_logic;
+    debug_tx_uart_o : out std_logic
+
     );
 end entity top_pinball;
 
@@ -55,13 +60,16 @@ architecture arch_top_pinball of top_pinball is
   signal wdata_reg_s      : std_logic_vector(C_data_size - 1 downto 0);
   signal rw_reg_s         : std_logic;
   signal start_rw_reg_s   : std_logic;
+  signal tx_uart_o_s      : std_logic;
 
   -- REG_CTRL SIGNALS
 
 
 begin  -- architecture arch_top_pinball
 
-
+  -- DEBUG PURPOSE
+  debug_rx_uart_o <= rx_uart_i;
+  debug_tx_uart_o <= tx_uart_o_s;
 
   -- UART_CTRL inst
   uart_ctrl_inst : uart_ctrl
@@ -84,7 +92,9 @@ begin  -- architecture arch_top_pinball
       rw_reg_o         => rw_reg_s,
       start_rw_reg_o   => start_rw_reg_s,
       rx_uart_i        => rx_uart_i,
-      tx_uart_o        => tx_uart_o);
+      tx_uart_o        => tx_uart_o_s);
+
+  tx_uart_o <= tx_uart_o_s;
 
 
   -- REG CTRL BANK INST

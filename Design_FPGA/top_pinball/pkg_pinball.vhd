@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-08-30
+-- Last update: 2019-09-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ package pkg_pinball is
   -- == CONSTANTS ==
   -- UART CTRL Config
   constant C_stop_bit_nb     : integer              := 1;    -- Stop_bit_nb
-  constant C_parity          : t_parity             := even;      -- Parity
-  constant C_baudrate        : t_baudrate           := b115200;   -- Baudrate
+  constant C_parity          : t_parity             := none;      -- Parity
+  constant C_baudrate        : t_baudrate           := b9600;   -- Baudrate
   constant C_data_size       : integer range 5 to 9 := 8;    -- Data zize
   constant C_polarity        : std_logic            := '1';  -- High polarity
   constant C_first_bit       : t_first_bit          := lsb_first;  -- LSB First

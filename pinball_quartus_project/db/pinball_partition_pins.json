@@ -8,15 +8,23 @@
 					"strict" : false
 				},
 				{
+					"name" : "debug_rx_uart_o",
+					"strict" : false
+				},
+				{
+					"name" : "debug_tx_uart_o",
+					"strict" : false
+				},
+				{
+					"name" : "rx_uart_i",
+					"strict" : false
+				},
+				{
 					"name" : "clock_i",
 					"strict" : false
 				},
 				{
 					"name" : "reset_n",
-					"strict" : false
-				},
-				{
-					"name" : "rx_uart_i",
 					"strict" : false
 				}
 			]
