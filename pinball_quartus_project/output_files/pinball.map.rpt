@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pinball
-Sun Sep 01 18:13:46 2019
+Mon Sep 02 21:25:15 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Sep 01 18:13:46 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 02 21:25:15 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
 ; Top-level Entity Name              ; top_pinball                                 ;
@@ -431,7 +431,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -441,7 +441,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Sep 01 18:13:33 2019
+    Info: Processing started: Mon Sep 02 21:25:01 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pinball -c pinball
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -471,7 +471,8 @@ Info (12021): Found 2 design units, including 0 entities, in source file /docume
     Info (12022): Found design unit 1: pkg_uart File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 26
     Info (12022): Found design unit 2: pkg_uart-body File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 113
 Info (12127): Elaborating entity "top_pinball" for the top level hierarchy
-Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 75
+Warning (10036): Verilog HDL or VHDL warning at top_pinball.vhd(56): object "rx_uart_i_ss" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 56
+Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 90
 Info (12128): Elaborating entity "uart_mngt" for hierarchy "uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 115
 Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(101): object "uart_cmd_ok_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 101
 Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(102): object "uart_cmd_ko_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 102
@@ -479,7 +480,7 @@ Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(108): object "raz_
 Info (12128): Elaborating entity "rx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 145
 Warning (10036): Verilog HDL or VHDL warning at rx_uart.vhd(60): object "start_cnt" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd Line: 60
 Info (12128): Elaborating entity "tx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 163
-Info (12128): Elaborating entity "reg_ctrl" for hierarchy "reg_ctrl:reg_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 101
+Info (12128): Elaborating entity "reg_ctrl" for hierarchy "reg_ctrl:reg_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 116
 Info (13000): Registers with preset signals will power-up high File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/tx_uart.vhd Line: 210
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
@@ -489,10 +490,10 @@ Info (21057): Implemented 358 device resources after synthesis - the final resou
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 3 output pins
     Info (21061): Implemented 352 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Sun Sep 01 18:13:46 2019
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:27
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Mon Sep 02 21:25:15 2019
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:26
 
 

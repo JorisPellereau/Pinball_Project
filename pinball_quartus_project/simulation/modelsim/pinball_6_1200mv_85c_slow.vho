@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "09/01/2019 18:14:01"
+-- DATE "09/02/2019 21:25:37"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -81,9 +81,9 @@ ENTITY 	top_pinball IS
 	reset_n : IN std_logic;
 	clock_i : IN std_logic;
 	rx_uart_i : IN std_logic;
-	tx_uart_o : BUFFER std_logic;
-	debug_rx_uart_o : BUFFER std_logic;
-	debug_tx_uart_o : BUFFER std_logic
+	tx_uart_o : OUT std_logic;
+	debug_rx_uart_o : OUT std_logic;
+	debug_tx_uart_o : OUT std_logic
 	);
 END top_pinball;
 

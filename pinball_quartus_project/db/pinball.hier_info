@@ -5,9 +5,9 @@ clock_i => uart_ctrl:uart_ctrl_inst.clock_i
 clock_i => reg_ctrl:reg_ctrl_inst.clock_i
 rx_uart_i => uart_ctrl:uart_ctrl_inst.rx_uart_i
 rx_uart_i => debug_rx_uart_o.DATAIN
-tx_uart_o << uart_ctrl:uart_ctrl_inst.tx_uart_o
-debug_rx_uart_o << rx_uart_i.DB_MAX_OUTPUT_PORT_TYPE
-debug_tx_uart_o << uart_ctrl:uart_ctrl_inst.tx_uart_o
+tx_uart_o <= uart_ctrl:uart_ctrl_inst.tx_uart_o
+debug_rx_uart_o <= rx_uart_i.DB_MAX_OUTPUT_PORT_TYPE
+debug_tx_uart_o <= uart_ctrl:uart_ctrl_inst.tx_uart_o
 
 
 |top_pinball|uart_ctrl:uart_ctrl_inst

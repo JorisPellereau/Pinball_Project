@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-09-01
+-- Last update: 2019-09-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -51,6 +51,9 @@ end entity top_pinball;
 
 architecture arch_top_pinball of top_pinball is
 
+  -- SIGNALS LATCHS
+  signal rx_uart_i_s  : std_logic;
+  signal rx_uart_i_ss : std_logic;
 
   -- UART CTRL SIGNALS
   signal addr_reg_ok_s    : std_logic;
@@ -70,6 +73,18 @@ begin  -- architecture arch_top_pinball
   -- DEBUG PURPOSE
   debug_rx_uart_o <= rx_uart_i;
   debug_tx_uart_o <= tx_uart_o_s;
+
+  -- purpose: This process latches the inputs
+  p_latch_inputs : process (clock_i, reset_n) is
+  begin  -- process p_latch_inputs
+    if reset_n = '0' then               -- asynchronous reset (active low)
+      rx_uart_i_s  <= '0';
+      rx_uart_i_ss <= '0';
+    elsif clock_i'event and clock_i = '1' then  -- rising clock edge
+      rx_uart_i_s  <= rx_uart_i;
+      rx_uart_i_ss <= rx_uart_i_s;
+    end if;
+  end process p_latch_inputs;
 
   -- UART_CTRL inst
   uart_ctrl_inst : uart_ctrl
