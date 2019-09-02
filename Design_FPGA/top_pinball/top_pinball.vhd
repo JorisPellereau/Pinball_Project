@@ -106,7 +106,7 @@ begin  -- architecture arch_top_pinball
       wdata_reg_o      => wdata_reg_s,
       rw_reg_o         => rw_reg_s,
       start_rw_reg_o   => start_rw_reg_s,
-      rx_uart_i        => rx_uart_i,
+      rx_uart_i        => rx_uart_i_ss,
       tx_uart_o        => tx_uart_o_s);
 
   tx_uart_o <= tx_uart_o_s;

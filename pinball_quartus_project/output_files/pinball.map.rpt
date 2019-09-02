@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pinball
-Mon Sep 02 21:25:15 2019
+Mon Sep 02 22:45:51 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,15 +52,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 02 21:25:15 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 02 22:45:51 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
 ; Top-level Entity Name              ; top_pinball                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 342                                         ;
-;     Total combinational functions  ; 261                                         ;
-;     Dedicated logic registers      ; 229                                         ;
-; Total registers                    ; 229                                         ;
+; Total logic elements               ; 345                                         ;
+;     Total combinational functions  ; 262                                         ;
+;     Dedicated logic registers      ; 231                                         ;
+; Total registers                    ; 231                                         ;
 ; Total pins                         ; 6                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -194,20 +194,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 342           ;
+; Estimated Total logic elements              ; 345           ;
 ;                                             ;               ;
-; Total combinational functions               ; 261           ;
+; Total combinational functions               ; 262           ;
 ; Logic element usage by number of LUT inputs ;               ;
 ;     -- 4 input functions                    ; 125           ;
 ;     -- 3 input functions                    ; 29            ;
-;     -- <=2 input functions                  ; 107           ;
+;     -- <=2 input functions                  ; 108           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 223           ;
+;     -- normal mode                          ; 224           ;
 ;     -- arithmetic mode                      ; 38            ;
 ;                                             ;               ;
-; Total registers                             ; 229           ;
-;     -- Dedicated logic registers            ; 229           ;
+; Total registers                             ; 231           ;
+;     -- Dedicated logic registers            ; 231           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
 ; I/O pins                                    ; 6             ;
@@ -215,9 +215,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; clock_i~input ;
-; Maximum fan-out                             ; 229           ;
-; Total fan-out                               ; 1721          ;
-; Average fan-out                             ; 3.43          ;
+; Maximum fan-out                             ; 231           ;
+; Total fan-out                               ; 1729          ;
+; Average fan-out                             ; 3.42          ;
 +---------------------------------------------+---------------+
 
 
@@ -226,10 +226,10 @@ refer to the applicable agreement for further details.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Entity Name ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
-; |top_pinball                     ; 261 (0)             ; 229 (0)                   ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |top_pinball                                                   ; top_pinball ; work         ;
+; |top_pinball                     ; 262 (0)             ; 231 (2)                   ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |top_pinball                                                   ; top_pinball ; work         ;
 ;    |reg_ctrl:reg_ctrl_inst|      ; 55 (55)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|reg_ctrl:reg_ctrl_inst                            ; reg_ctrl    ; work         ;
-;    |uart_ctrl:uart_ctrl_inst|    ; 206 (0)             ; 157 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst                          ; uart_ctrl   ; work         ;
-;       |rx_uart:rx_uart_inst|     ; 79 (79)             ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst     ; rx_uart     ; work         ;
+;    |uart_ctrl:uart_ctrl_inst|    ; 207 (0)             ; 157 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst                          ; uart_ctrl   ; work         ;
+;       |rx_uart:rx_uart_inst|     ; 80 (80)             ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst     ; rx_uart     ; work         ;
 ;       |tx_uart:tx_uart_inst|     ; 61 (61)             ; 38 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst     ; tx_uart     ; work         ;
 ;       |uart_mngt:uart_mngt_inst| ; 66 (66)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst ; uart_mngt   ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------+--------------+
@@ -284,10 +284,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 229   ;
+; Total registers                              ; 231   ;
 ; Number of registers using Synchronous Clear  ; 65    ;
 ; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 229   ;
+; Number of registers using Asynchronous Clear ; 231   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 163   ;
 ; Number of registers using Preset             ; 0     ;
@@ -405,24 +405,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 6                           ;
-; cycloneiii_ff         ; 229                         ;
-;     CLR               ; 37                          ;
+; cycloneiii_ff         ; 231                         ;
+;     CLR               ; 39                          ;
 ;     CLR SCLR          ; 28                          ;
 ;     CLR SLD           ; 1                           ;
 ;     ENA CLR           ; 126                         ;
 ;     ENA CLR SCLR      ; 37                          ;
-; cycloneiii_lcell_comb ; 262                         ;
+; cycloneiii_lcell_comb ; 263                         ;
 ;     arith             ; 38                          ;
 ;         2 data inputs ; 37                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 224                         ;
+;     normal            ; 225                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 66                          ;
+;         2 data inputs ; 67                          ;
 ;         3 data inputs ; 28                          ;
 ;         4 data inputs ; 125                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.14                        ;
+; Average LUT depth     ; 2.13                        ;
 +-----------------------+-----------------------------+
 
 
@@ -431,7 +431,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -441,7 +441,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Sep 02 21:25:01 2019
+    Info: Processing started: Mon Sep 02 22:45:39 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pinball -c pinball
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -471,7 +471,6 @@ Info (12021): Found 2 design units, including 0 entities, in source file /docume
     Info (12022): Found design unit 1: pkg_uart File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 26
     Info (12022): Found design unit 2: pkg_uart-body File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 113
 Info (12127): Elaborating entity "top_pinball" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_pinball.vhd(56): object "rx_uart_i_ss" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 56
 Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 90
 Info (12128): Elaborating entity "uart_mngt" for hierarchy "uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 115
 Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(101): object "uart_cmd_ok_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 101
@@ -486,14 +485,14 @@ Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal 
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 358 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 361 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 3 output pins
-    Info (21061): Implemented 352 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4799 megabytes
-    Info: Processing ended: Mon Sep 02 21:25:15 2019
-    Info: Elapsed time: 00:00:14
+    Info (21061): Implemented 355 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4796 megabytes
+    Info: Processing ended: Mon Sep 02 22:45:51 2019
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:26
 
 
