@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-09-01
+-- Last update: 2019-09-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ package pkg_pinball is
   -- UART CTRL Config
   constant C_stop_bit_nb     : integer              := 1;    -- Stop_bit_nb
   constant C_parity          : t_parity             := none;      -- Parity
-  constant C_baudrate        : t_baudrate           := b9600;   -- Baudrate
+  constant C_baudrate        : t_baudrate           := b9600;     -- Baudrate
   constant C_data_size       : integer range 5 to 9 := 8;    -- Data zize
   constant C_polarity        : std_logic            := '1';  -- High polarity
   constant C_first_bit       : t_first_bit          := lsb_first;  -- LSB First
@@ -63,7 +63,13 @@ package pkg_pinball is
       -- Reg addr present in the list
       reg_addr_ok_o   : out std_logic;
       -- Read data from the correct Addr reg
-      rdata_reg_o     : out std_logic_vector(data_size - 1 downto 0));
+      rdata_reg_o     : out std_logic_vector(data_size - 1 downto 0)
+
+
+      -- REGISTERS
+      reg_sel_config_ws2812_led0_o : out std_logic_vector(data_size - 1 downto 0);
+      reg_cmd_ws2812_led0_o        : out std_logic_vector(data_size - 1 downto 0)
+      );
   end component;
 
 end package pkg_pinball;

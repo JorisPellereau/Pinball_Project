@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-09-02
+-- Last update: 2019-09-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -29,6 +29,9 @@ use lib_uart.pkg_uart_pinball.all;
 library lib_pinball;
 use lib_pinball.pkg_pinball.all;
 
+library lib_ws2812;
+use lib_ws2812.pkg_ws2812.all;
+
 
 entity top_pinball is
   port (
@@ -39,7 +42,10 @@ entity top_pinball is
     rx_uart_i : in  std_logic;          -- RX UART input
     tx_uart_o : out std_logic;          -- TX UART output
 
-    -- DEBUG PURPUSE
+    -- WS2812 LED0 INTERFACE
+    ws2812_data_0_o : out std_logic;    -- SERIAL LEDS0 ws2812
+
+    -- DEBUG PURPOSE
     debug_rx_uart_o : out std_logic;
     debug_tx_uart_o : out std_logic
 
@@ -66,7 +72,8 @@ architecture arch_top_pinball of top_pinball is
   signal tx_uart_o_s      : std_logic;
 
   -- REG_CTRL SIGNALS
-
+  signal reg_sel_config_ws2812_led0_s : std_logic_vector(C_data_size - 1 downto 0);
+  signal reg_cmd_ws2812_led0_s        : std_logic_vector(C_data_size - 1 downto 0);
 
 begin  -- architecture arch_top_pinball
 
@@ -112,20 +119,34 @@ begin  -- architecture arch_top_pinball
   tx_uart_o <= tx_uart_o_s;
 
 
+  -- WS2812_CTRL INST
+  ws2812_ctrl_inst : ws2812_ctrl
+    generic map (
+      G_LED_NUMBER => C_LED_NB)
+    port map (
+      clock_i           => clock_i,
+      reset_n           => reset_n,
+      sel_config_i      => reg_sel_config_ws2812_led0_s,
+      ws2812_leds_cmd_i => reg_cmd_ws2812_led0_s,
+      ws2812_data_o     => ws2812_data_0_o);
+
   -- REG CTRL BANK INST
   reg_ctrl_inst : reg_ctrl
     generic map (
       data_size => C_data_size)
     port map (
-      reset_n         => reset_n,
-      clock_i         => clock_i,
-      rcvd_addr_reg_i => rcvd_addr_reg_s,
-      wdata_reg_i     => wdata_reg_s,
-      rw_reg_i        => rw_reg_s,
-      start_rw_i      => start_rw_reg_s,
-      data_valid_o    => reg_data_valid_s,
-      reg_addr_ok_o   => addr_reg_ok_s,
-      rdata_reg_o     => rdata_reg_s);
+      reset_n                      => reset_n,
+      clock_i                      => clock_i,
+      rcvd_addr_reg_i              => rcvd_addr_reg_s,
+      wdata_reg_i                  => wdata_reg_s,
+      rw_reg_i                     => rw_reg_s,
+      start_rw_i                   => start_rw_reg_s,
+      data_valid_o                 => reg_data_valid_s,
+      reg_addr_ok_o                => addr_reg_ok_s,
+      rdata_reg_o                  => rdata_reg_s,
+      reg_sel_config_ws2812_led0_o => reg_sel_config_ws2812_led0_s,
+      reg_cmd_ws2812_led0_o        => reg_cmd_ws2812_led0_s
+      );
 
 
 end architecture arch_top_pinball;
