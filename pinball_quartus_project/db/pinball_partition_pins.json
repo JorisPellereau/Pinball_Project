@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "ws2812_data_0_o",
+					"strict" : false
+				},
+				{
 					"name" : "debug_rx_uart_o",
 					"strict" : false
 				},

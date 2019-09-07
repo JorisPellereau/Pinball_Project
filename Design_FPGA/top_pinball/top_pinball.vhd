@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-09-05
+-- Last update: 2019-09-07
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -75,6 +75,9 @@ architecture arch_top_pinball of top_pinball is
   signal reg_sel_config_ws2812_led0_s : std_logic_vector(C_data_size - 1 downto 0);
   signal reg_cmd_ws2812_led0_s        : std_logic_vector(C_data_size - 1 downto 0);
 
+  -- WS2812 CTRL SIGNALS
+  signal ws2812_data_0_o_s : std_logic;
+
 begin  -- architecture arch_top_pinball
 
   -- DEBUG PURPOSE
@@ -128,7 +131,9 @@ begin  -- architecture arch_top_pinball
       reset_n           => reset_n,
       sel_config_i      => reg_sel_config_ws2812_led0_s,
       ws2812_leds_cmd_i => reg_cmd_ws2812_led0_s,
-      ws2812_data_o     => ws2812_data_0_o);
+      ws2812_data_o     => ws2812_data_0_o_s);
+
+  ws2812_data_0_o <= ws2812_data_0_o_s;
 
   -- REG CTRL BANK INST
   reg_ctrl_inst : reg_ctrl

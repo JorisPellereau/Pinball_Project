@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-23
--- Last update: 2019-09-05
+-- Last update: 2019-09-07
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ entity reg_ctrl is
     -- Reg addr present in the list
     reg_addr_ok_o   : out std_logic;
     -- Read data from the correct Addr reg
-    rdata_reg_o     : out std_logic_vector(data_size - 1 downto 0)
+    rdata_reg_o     : out std_logic_vector(data_size - 1 downto 0);
 
 
     -- REGISTERS
@@ -187,5 +187,10 @@ begin  -- architecture arch_reg_ctrl
   end process p_rw_reg_mng;
   rdata_reg_o  <= rdata_reg_o_s;
   data_valid_o <= data_valid_o_s;
+
+
+  -- OUTPUTS affectation
+  reg_sel_config_ws2812_led0_o <= array_reg(0);
+  reg_cmd_ws2812_led0_o        <= array_reg(1);
 
 end architecture arch_reg_ctrl;
