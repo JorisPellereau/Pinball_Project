@@ -188,4 +188,9 @@ begin  -- architecture arch_reg_ctrl
   rdata_reg_o  <= rdata_reg_o_s;
   data_valid_o <= data_valid_o_s;
 
+
+  -- OUTPUTS affectation
+  reg_sel_config_ws2812_led0_o <= array_reg(0);
+  reg_cmd_ws2812_led0_o        <= array_reg(1);
+
 end architecture arch_reg_ctrl;

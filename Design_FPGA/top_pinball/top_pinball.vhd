@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-09-07
+-- Last update: 2019-10-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -57,6 +57,9 @@ end entity top_pinball;
 
 architecture arch_top_pinball of top_pinball is
 
+  -- CONSTANTS
+  constant C_LED_NB_1 : integer := 8;   -- Number of leds on the 1st WS2812 command
+  
   -- SIGNALS LATCHS
   signal rx_uart_i_s  : std_logic;
   signal rx_uart_i_ss : std_logic;
@@ -125,7 +128,7 @@ begin  -- architecture arch_top_pinball
   -- WS2812_CTRL INST
   ws2812_ctrl_inst : ws2812_ctrl
     generic map (
-      G_LED_NUMBER => C_LED_NB)
+      G_LED_NUMBER => C_LED_NB_1)
     port map (
       clock_i           => clock_i,
       reset_n           => reset_n,

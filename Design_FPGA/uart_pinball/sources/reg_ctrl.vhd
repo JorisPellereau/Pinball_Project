@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-23
--- Last update: 2019-09-07
+-- Last update: 2019-10-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -166,6 +166,7 @@ begin  -- architecture arch_reg_ctrl
       array_reg       <= (others => (others => '0'));
     elsif clock_i'event and clock_i = '1' then  -- rising clock edge
 
+      array_reg(1)(0) <= '0';
       if(check_done_s = '1') then
         if(reg_addr_ok_o_s = '1' and data_valid_o_s = '0') then  -- Rcvd addr in the list
           if(rw_reg_i_s = '1') then     -- Read case

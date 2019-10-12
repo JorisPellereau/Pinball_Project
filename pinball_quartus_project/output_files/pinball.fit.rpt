@@ -1,5 +1,5 @@
 Fitter report for pinball
-Sat Sep 07 17:37:52 2019
+Sat Oct 12 22:41:43 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -65,17 +65,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Sep 07 17:37:52 2019       ;
+; Fitter Status                      ; Successful - Sat Oct 12 22:41:43 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
 ; Top-level Entity Name              ; top_pinball                                 ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 430 / 22,320 ( 2 % )                        ;
-;     Total combinational functions  ; 364 / 22,320 ( 2 % )                        ;
-;     Dedicated logic registers      ; 323 / 22,320 ( 1 % )                        ;
-; Total registers                    ; 323                                         ;
+; Total logic elements               ; 706 / 22,320 ( 3 % )                        ;
+;     Total combinational functions  ; 629 / 22,320 ( 3 % )                        ;
+;     Dedicated logic registers      ; 458 / 22,320 ( 2 % )                        ;
+; Total registers                    ; 458                                         ;
 ; Total pins                         ; 7 / 154 ( 5 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
@@ -152,29 +152,30 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.04        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.0%      ;
-;     Processors 3-4         ;   1.0%      ;
+;     Processor 2            ;   1.5%      ;
+;     Processor 3            ;   1.3%      ;
+;     Processor 4            ;   1.3%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Incremental Compilation Preservation Summary                                                     ;
-+---------------------+--------------------+----------------------------+--------------------------+
-; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
-+---------------------+--------------------+----------------------------+--------------------------+
-; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 712 ) ; 0.00 % ( 0 / 712 )         ; 0.00 % ( 0 / 712 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 712 ) ; 0.00 % ( 0 / 712 )         ; 0.00 % ( 0 / 712 )       ;
-;                     ;                    ;                            ;                          ;
-; Routing (by net)    ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-;     -- Achieved     ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-+---------------------+--------------------+----------------------------+--------------------------+
++---------------------------------------------------------------------------------------------------+
+; Incremental Compilation Preservation Summary                                                      ;
++---------------------+---------------------+----------------------------+--------------------------+
+; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
++---------------------+---------------------+----------------------------+--------------------------+
+; Placement (by node) ;                     ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 1112 ) ; 0.00 % ( 0 / 1112 )        ; 0.00 % ( 0 / 1112 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 1112 ) ; 0.00 % ( 0 / 1112 )        ; 0.00 % ( 0 / 1112 )      ;
+;                     ;                     ;                            ;                          ;
+; Routing (by net)    ;                     ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
+;     -- Achieved     ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
++---------------------+---------------------+----------------------------+--------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -192,7 +193,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 702 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 1102 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -208,26 +209,26 @@ The pin-out file can be found in B:/Documents/GitHub/Pinball_Project/pinball_qua
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Total logic elements                        ; 430 / 22,320 ( 2 % ) ;
-;     -- Combinational with no register       ; 107                  ;
-;     -- Register only                        ; 66                   ;
-;     -- Combinational with a register        ; 257                  ;
+; Total logic elements                        ; 706 / 22,320 ( 3 % ) ;
+;     -- Combinational with no register       ; 248                  ;
+;     -- Register only                        ; 77                   ;
+;     -- Combinational with a register        ; 381                  ;
 ;                                             ;                      ;
 ; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 165                  ;
-;     -- 3 input functions                    ; 43                   ;
-;     -- <=2 input functions                  ; 156                  ;
-;     -- Register only                        ; 66                   ;
+;     -- 4 input functions                    ; 361                  ;
+;     -- 3 input functions                    ; 73                   ;
+;     -- <=2 input functions                  ; 195                  ;
+;     -- Register only                        ; 77                   ;
 ;                                             ;                      ;
 ; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 302                  ;
-;     -- arithmetic mode                      ; 62                   ;
+;     -- normal mode                          ; 582                  ;
+;     -- arithmetic mode                      ; 47                   ;
 ;                                             ;                      ;
-; Total registers*                            ; 323 / 23,018 ( 1 % ) ;
-;     -- Dedicated logic registers            ; 323 / 22,320 ( 1 % ) ;
+; Total registers*                            ; 458 / 23,018 ( 2 % ) ;
+;     -- Dedicated logic registers            ; 458 / 22,320 ( 2 % ) ;
 ;     -- I/O registers                        ; 0 / 698 ( 0 % )      ;
 ;                                             ;                      ;
-; Total LABs:  partially or completely used   ; 35 / 1,395 ( 3 % )   ;
+; Total LABs:  partially or completely used   ; 52 / 1,395 ( 4 % )   ;
 ; Virtual pins                                ; 0                    ;
 ; I/O pins                                    ; 7 / 154 ( 5 % )      ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )       ;
@@ -245,12 +246,12 @@ The pin-out file can be found in B:/Documents/GitHub/Pinball_Project/pinball_qua
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )        ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )        ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )        ;
-; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.2%   ;
-; Peak interconnect usage (total/H/V)         ; 2.6% / 2.6% / 2.5%   ;
-; Maximum fan-out                             ; 323                  ;
-; Highest non-global fan-out                  ; 323                  ;
-; Total fan-out                               ; 2432                 ;
-; Average fan-out                             ; 3.14                 ;
+; Average interconnect usage (total/H/V)      ; 0.5% / 0.5% / 0.4%   ;
+; Peak interconnect usage (total/H/V)         ; 4.1% / 3.8% / 4.6%   ;
+; Maximum fan-out                             ; 458                  ;
+; Highest non-global fan-out                  ; 458                  ;
+; Total fan-out                               ; 3884                 ;
+; Average fan-out                             ; 3.27                 ;
 +---------------------------------------------+----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -263,26 +264,26 @@ The pin-out file can be found in B:/Documents/GitHub/Pinball_Project/pinball_qua
 +---------------------------------------------+---------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                 ; Low                            ;
 ;                                             ;                     ;                                ;
-; Total logic elements                        ; 430 / 22320 ( 2 % ) ; 0 / 22320 ( 0 % )              ;
-;     -- Combinational with no register       ; 107                 ; 0                              ;
-;     -- Register only                        ; 66                  ; 0                              ;
-;     -- Combinational with a register        ; 257                 ; 0                              ;
+; Total logic elements                        ; 706 / 22320 ( 3 % ) ; 0 / 22320 ( 0 % )              ;
+;     -- Combinational with no register       ; 248                 ; 0                              ;
+;     -- Register only                        ; 77                  ; 0                              ;
+;     -- Combinational with a register        ; 381                 ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Logic element usage by number of LUT inputs ;                     ;                                ;
-;     -- 4 input functions                    ; 165                 ; 0                              ;
-;     -- 3 input functions                    ; 43                  ; 0                              ;
-;     -- <=2 input functions                  ; 156                 ; 0                              ;
-;     -- Register only                        ; 66                  ; 0                              ;
+;     -- 4 input functions                    ; 361                 ; 0                              ;
+;     -- 3 input functions                    ; 73                  ; 0                              ;
+;     -- <=2 input functions                  ; 195                 ; 0                              ;
+;     -- Register only                        ; 77                  ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Logic elements by mode                      ;                     ;                                ;
-;     -- normal mode                          ; 302                 ; 0                              ;
-;     -- arithmetic mode                      ; 62                  ; 0                              ;
+;     -- normal mode                          ; 582                 ; 0                              ;
+;     -- arithmetic mode                      ; 47                  ; 0                              ;
 ;                                             ;                     ;                                ;
-; Total registers                             ; 323                 ; 0                              ;
-;     -- Dedicated logic registers            ; 323 / 22320 ( 1 % ) ; 0 / 22320 ( 0 % )              ;
+; Total registers                             ; 458                 ; 0                              ;
+;     -- Dedicated logic registers            ; 458 / 22320 ( 2 % ) ; 0 / 22320 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                   ; 0                              ;
 ;                                             ;                     ;                                ;
-; Total LABs:  partially or completely used   ; 35 / 1395 ( 3 % )   ; 0 / 1395 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 52 / 1395 ( 4 % )   ; 0 / 1395 ( 0 % )               ;
 ;                                             ;                     ;                                ;
 ; Virtual pins                                ; 0                   ; 0                              ;
 ; I/O pins                                    ; 7                   ; 0                              ;
@@ -298,8 +299,8 @@ The pin-out file can be found in B:/Documents/GitHub/Pinball_Project/pinball_qua
 ;     -- Registered Output Connections        ; 0                   ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Internal Connections                        ;                     ;                                ;
-;     -- Total Connections                    ; 2427                ; 5                              ;
-;     -- Registered Connections               ; 955                 ; 0                              ;
+;     -- Total Connections                    ; 3879                ; 5                              ;
+;     -- Registered Connections               ; 1756                ; 0                              ;
 ;                                             ;                     ;                                ;
 ; External Connections                        ;                     ;                                ;
 ;     -- Top                                  ; 0                   ; 0                              ;
@@ -331,8 +332,8 @@ The pin-out file can be found in B:/Documents/GitHub/Pinball_Project/pinball_qua
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name      ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; clock_i   ; R8    ; 3        ; 27           ; 0            ; 21           ; 323                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; reset_n   ; J15   ; 5        ; 53           ; 14           ; 0            ; 323                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; clock_i   ; R8    ; 3        ; 27           ; 0            ; 21           ; 458                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; reset_n   ; J15   ; 5        ; 53           ; 14           ; 0            ; 458                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; rx_uart_i ; D3    ; 8        ; 1            ; 34           ; 7            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
@@ -669,23 +670,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------+-------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                     ;
-+--------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node                 ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                          ; Entity Name    ; Library Name ;
-+--------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------+----------------+--------------+
-; |top_pinball                               ; 430 (1)     ; 323 (2)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 7    ; 0            ; 107 (0)      ; 66 (1)            ; 257 (0)          ; |top_pinball                                                                 ; top_pinball    ; work         ;
-;    |reg_ctrl:reg_ctrl_inst|                ; 81 (81)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 25 (25)           ; 48 (48)          ; |top_pinball|reg_ctrl:reg_ctrl_inst                                          ; reg_ctrl       ; work         ;
-;    |uart_ctrl:uart_ctrl_inst|              ; 231 (0)     ; 157 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 72 (0)       ; 25 (0)            ; 134 (0)          ; |top_pinball|uart_ctrl:uart_ctrl_inst                                        ; uart_ctrl      ; work         ;
-;       |rx_uart:rx_uart_inst|               ; 80 (80)     ; 47 (47)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (33)      ; 0 (0)             ; 47 (47)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst                   ; rx_uart        ; work         ;
-;       |tx_uart:tx_uart_inst|               ; 63 (63)     ; 38 (38)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 25 (25)      ; 4 (4)             ; 34 (34)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst                   ; tx_uart        ; work         ;
-;       |uart_mngt:uart_mngt_inst|           ; 88 (88)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 21 (21)           ; 53 (53)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst               ; uart_mngt      ; work         ;
-;    |ws2812_ctrl:ws2812_ctrl_inst|          ; 119 (0)     ; 92 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 27 (0)       ; 15 (0)            ; 77 (0)           ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst                                    ; ws2812_ctrl    ; work         ;
-;       |WS2812:ws2812_inst|                 ; 41 (41)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 1 (1)             ; 25 (25)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst                 ; WS2812         ; work         ;
-;       |config_leds:config_leds_inst|       ; 22 (22)     ; 22 (22)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 14 (14)           ; 8 (8)            ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst       ; config_leds    ; work         ;
-;       |ws2812_mngt:ws2812_mngt_inst|       ; 23 (23)     ; 20 (20)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 20 (20)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst       ; ws2812_mngt    ; work         ;
-;       |ws2812_rst_mng:ws2812_rst_mng_inst| ; 33 (33)     ; 24 (24)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 24 (24)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst ; ws2812_rst_mng ; work         ;
-+--------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------+----------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                      ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                    ; Entity Name ; Library Name ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------+-------------+--------------+
+; |top_pinball                         ; 706 (2)     ; 458 (2)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 7    ; 0            ; 248 (0)      ; 77 (1)            ; 381 (0)          ; |top_pinball                                                           ; top_pinball ; work         ;
+;    |reg_ctrl:reg_ctrl_inst|          ; 85 (85)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 23 (23)           ; 49 (49)          ; |top_pinball|reg_ctrl:reg_ctrl_inst                                    ; reg_ctrl    ; work         ;
+;    |uart_ctrl:uart_ctrl_inst|        ; 230 (0)     ; 157 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 71 (0)       ; 27 (0)            ; 132 (0)          ; |top_pinball|uart_ctrl:uart_ctrl_inst                                  ; uart_ctrl   ; work         ;
+;       |rx_uart:rx_uart_inst|         ; 82 (82)     ; 47 (47)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 34 (34)      ; 1 (1)             ; 47 (47)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst             ; rx_uart     ; work         ;
+;       |tx_uart:tx_uart_inst|         ; 61 (61)     ; 38 (38)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (23)      ; 4 (4)             ; 34 (34)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst             ; tx_uart     ; work         ;
+;       |uart_mngt:uart_mngt_inst|     ; 87 (87)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 22 (22)           ; 51 (51)          ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst         ; uart_mngt   ; work         ;
+;    |ws2812_ctrl:ws2812_ctrl_inst|    ; 391 (0)     ; 227 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 164 (0)      ; 26 (0)            ; 201 (0)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst                              ; ws2812_ctrl ; work         ;
+;       |WS2812:ws2812_inst|           ; 66 (66)     ; 44 (44)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 22 (22)      ; 14 (14)           ; 30 (30)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst           ; WS2812      ; work         ;
+;       |config_leds:config_leds_inst| ; 137 (137)   ; 83 (83)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 12 (12)           ; 71 (71)          ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst ; config_leds ; work         ;
+;       |ws2812_mngt:ws2812_mngt_inst| ; 188 (188)   ; 100 (100)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 88 (88)      ; 0 (0)             ; 100 (100)        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst ; ws2812_mngt ; work         ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -698,9 +698,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ws2812_data_0_o ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; debug_rx_uart_o ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; debug_tx_uart_o ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; rx_uart_i       ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; rx_uart_i       ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; clock_i         ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; reset_n         ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; reset_n         ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -710,333 +710,468 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout                                                                        ; Pad To Core Index ; Setting ;
 +--------------------------------------------------------------------------------------------+-------------------+---------+
 ; rx_uart_i                                                                                  ;                   ;         ;
-;      - rx_uart_i_s                                                                         ; 1                 ; 6       ;
-;      - debug_rx_uart_o~output                                                              ; 1                 ; 6       ;
+;      - rx_uart_i_s                                                                         ; 0                 ; 6       ;
+;      - debug_rx_uart_o~output                                                              ; 0                 ; 6       ;
 ; clock_i                                                                                    ;                   ;         ;
 ; reset_n                                                                                    ;                   ;         ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[0]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[1]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[2]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[3]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[4]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[5]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[6]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[7]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|d_out_s                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|send_resp_s                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rw_cmd_s                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|send_ko_resp_s                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_parse_s                     ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|parse_done_s                      ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[7]                                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cmd_byte_error_s                  ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[6]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[5]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[4]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[3]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[2]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[1]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[0]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|check_on_s                                                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[7]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_done_s                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[6]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[5]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[4]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[3]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[2]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[1]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[0]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.IDLE                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.LATCH_INPUTS                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.START_BIT_GEN                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.DATA_GEN                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.STOP_BIT_GEN                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[1]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[0]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[2]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[5]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[4]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[1]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[0]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[2]                          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[3]                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[0]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[1]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[2]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[3]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[4]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[5]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[6]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[7]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[8]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[9]                   ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[10]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[11]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[12]                  ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[0]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[1]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[2]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[3]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[4]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[5]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[6]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[7]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[8]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[9]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[10]       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[11]       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[12]       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[13]       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[14]       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[15]       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[3]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[4]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[5]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[6]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[7]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[8]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[9]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[10]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[11]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[12]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[2]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[3]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[4]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[5]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[6]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[7]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[8]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[9]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[10]                      ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[11]                      ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[2]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[1]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[1]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[0]                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[0]                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_s                                  ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|frame_done_s                        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|pwm_done                            ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[2]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[1]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[4]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[3]                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|start_init_s                        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[5]                             ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|frame_gen                           ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[4]                             ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[1]                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|start_tx_r_edge                       ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tick_data                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|latch_done_s                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_stop_bit                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.STOP                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[5]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[6]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[4]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[7]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[2]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[1]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[0]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[3]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|start_ws2812_o_s          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|start_s                             ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[23]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[7]                     ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[20]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[15]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[12]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[4]                     ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_tx_o_s                      ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|start_tx_s                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|uart_resp_done_s                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[1]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[5]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[6]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[4]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[7]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[0]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[2]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[1]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[0]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[3]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|run_config_s              ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|setup_config_done_s       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[23]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[7]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[20]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[15]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[12]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[4]         ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_done_s                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_done_i_s                       ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|data_valid_o_s                                               ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|reg_data_valid_s                  ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|reg_addr_ok_o_s                                              ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[1]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[0]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][7]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][5]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][6]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][4]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][3]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][2]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][1]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][0]                  ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|start_leds_o_s      ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|start_leds_i_s            ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|config_done_s             ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|frame_ws2812_done_s       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][20] ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][12] ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][4]  ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][5]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][5]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[1]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][5]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[0]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][5]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][5]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[2]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|check_done_s                                                 ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rw_reg_i_s                                                   ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|data_valid_o_ss                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[7]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[6]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[5]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[4]                                         ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[3]                                         ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rx_done_i_s                       ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][6]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][6]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][6]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][6]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][6]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][4]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][4]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][4]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][4]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][4]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][7]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][7]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][7]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][7]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][7]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][2]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][2]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][2]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][2]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][2]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][1]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][1]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][1]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][1]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][1]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][0]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][0]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][0]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][0]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][0]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[4][3]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[2][3]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[1][3]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[0][3]                                              ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|array_reg[3][3]                                              ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|en_start_i_ss       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|reset_gen_i_ss      ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|rst_done_s          ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|start_cnt_s         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|config_done_s       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[1]              ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][20]     ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][12]     ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][4]      ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[5]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|start_rw_i_r_edge                                            ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[1]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[0]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[2]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[7]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[6]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[5]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[4]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[3]                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.STOP                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_START                     ; 0                 ; 6       ;
-;      - rx_uart_i_ss                                                                        ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|tick_data                             ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_DATA                      ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[2]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[0]                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[1]                           ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[6]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[4]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[7]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[2]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[1]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[0]                                             ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[3]                                             ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|en_start_i_s        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|reset_gen_i_s       ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[0]              ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[7]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[6]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[5]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[4]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[0]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[3]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[2]        ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[1]        ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[5]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_rw_reg_s                    ; 0                 ; 6       ;
-;      - reg_ctrl:reg_ctrl_inst|start_rw_i_s                                                 ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][1]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][0]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][2]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][7]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][6]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][5]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][4]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][3]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_STOP_BIT                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_stop_bit                          ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_old                                ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.WAIT_START                     ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.IDLE                           ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[3]                           ; 0                 ; 6       ;
-;      - rx_uart_i_s                                                                         ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[6]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[4]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[7]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[2]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[1]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[0]                    ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[3]                    ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[7]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[6]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[5]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[4]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[0]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[3]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[2]         ; 0                 ; 6       ;
-;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[1]         ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][5]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][6]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][4]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][7]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][2]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][1]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][0]                  ; 0                 ; 6       ;
-;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][3]                  ; 0                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[0]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[1]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[2]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[3]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[4]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[5]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[6]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_data_s[7]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|d_out_s                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|send_resp_s                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rw_cmd_s                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|send_ko_resp_s                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|setup_config_done_s       ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[23]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[22]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[21]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[20]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[19]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[18]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[17]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[16]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[15]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[14]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[13]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[12]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[11]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[10]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[9]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[8]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[7]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[6]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[5]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[4]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[3]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[2]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[1]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[0]         ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_parse_s                     ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|parse_done_s                      ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cmd_byte_error_s                  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|config_done_s             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|check_on_s                                                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[7]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_done_s                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[6]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[5]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[4]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[3]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[2]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[1]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_data_s[0]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.IDLE                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.LATCH_INPUTS                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.START_BIT_GEN                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.DATA_GEN                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.STOP_BIT_GEN                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[1]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[0]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[2]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[5]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[4]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[1]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[0]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[2]                          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[3]                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[0]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[1]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[2]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[3]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[4]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[5]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[6]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[7]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[8]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[9]                   ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[10]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[11]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[12]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[3]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[4]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[5]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[6]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[7]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[8]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[9]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[10]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[11]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[12]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[2]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[3]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[4]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[5]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[6]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[7]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[8]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[9]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[10]                      ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[11]                      ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[2]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[1]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[1]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[0]                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[0]                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_s                                  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|frame_done_s                        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|pwm_done                            ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[4]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[2]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[1]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[3]                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|start_init_s                        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|frame_gen                           ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[5]                             ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[1]                             ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[4]                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|start_tx_r_edge                       ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|latch_done_s                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_stop_bit                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tick_data                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.STOP                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[5]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[6]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[4]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[7]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[2]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[1]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[0]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[3]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|start_ws2812_o_s          ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|start_s                             ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[23]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[12]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[10]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[8]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[14]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[5]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[3]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[1]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[7]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[4]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[2]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[0]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[6]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[11]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[13]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[9]                     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[15]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[17]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[18]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[16]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[19]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[21]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[22]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|led_config_s[20]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_tx_o_s                      ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|start_tx_s                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|uart_resp_done_s                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[1]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[5]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[6]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[4]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[7]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[0]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[2]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[1]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[0]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[3]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|run_config_s              ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_done_s                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_done_i_s                       ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[5]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|data_valid_o_s                                               ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|reg_data_valid_s                  ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|reg_addr_ok_o_s                                              ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[1]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[0]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][7]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][5]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][6]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][4]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][3]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][2]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][1]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][0]                  ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[6]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[4]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[7]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[2]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[1]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[0]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[3]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][0]                                              ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|start_leds_i_s            ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|frame_ws2812_done_s       ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][17] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[1]              ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[2]              ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][21] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[0]              ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][23] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][21] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][8]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][12] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][9]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][10] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][14] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][10] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][8]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][8]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][8]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][8]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][11] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][14] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][11] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][9]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][14] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][7]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][5]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][5]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][1]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][6]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][3]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][6]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][0]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][4]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][4]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][4]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][0]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][0]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][0]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][0]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][13] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][13] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][13] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][13] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][9]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][9]  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][17] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][18] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][18] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][17] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][18] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][22] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][16] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][16] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][20] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][16] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][16] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][20] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][19] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][19] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][21] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][22] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][20] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][20] ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][20] ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|check_done_s                                                 ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][5]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][5]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[1]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][5]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[0]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][5]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][5]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[2]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rw_reg_i_s                                                   ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|data_valid_o_ss                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[7]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[6]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[5]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[4]                                         ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[3]                                         ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rx_done_i_s                       ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][6]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][6]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][6]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][6]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][6]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][4]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][4]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][4]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][4]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][4]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][7]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][7]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][7]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][7]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][7]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][2]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][2]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][2]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][2]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][2]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][1]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][1]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][1]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][1]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][1]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][0]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][0]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][0]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][0]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[4][3]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[2][3]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[1][3]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[0][3]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|array_reg[3][3]                                              ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[0]                                             ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][17]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][21]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][23]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][21]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][8]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][12]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][9]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][10]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][14]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][10]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][8]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][8]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][8]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][8]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][11]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][14]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][11]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][9]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][14]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][5]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][5]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][1]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][3]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][0]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][4]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][4]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][4]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][0]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][0]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][0]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][0]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][13]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][13]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][13]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][13]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][9]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][9]      ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][17]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][18]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][17]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][18]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][22]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][16]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][16]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][20]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][16]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][16]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][20]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][19]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][19]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][21]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][22]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][20]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][20]     ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][20]     ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[5]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|start_rw_i_r_edge                                            ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[1]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[0]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[2]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[7]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[6]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[5]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[4]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[3]                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.STOP                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_START                     ; 1                 ; 6       ;
+;      - rx_uart_i_ss                                                                        ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|tick_data                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_DATA                      ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[2]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[0]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[1]                           ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[6]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[4]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[7]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[2]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[1]                                             ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|wdata_reg_i_s[3]                                             ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[0]                    ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[0]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[1]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[2]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[3]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[4]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[7]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[6]        ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_ss[5]        ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[5]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|start_rw_reg_s                    ; 1                 ; 6       ;
+;      - reg_ctrl:reg_ctrl_inst|start_rw_i_s                                                 ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][1]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][0]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][2]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][7]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][6]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][5]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][4]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][3]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_STOP_BIT                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_stop_bit                          ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_old                                ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.WAIT_START                     ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[3]                           ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.IDLE                           ; 1                 ; 6       ;
+;      - rx_uart_i_s                                                                         ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[6]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[4]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[7]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[2]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[1]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|wdata_reg_s[3]                    ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][0]                  ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[0]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[1]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[2]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[3]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[4]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[7]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[6]         ; 1                 ; 6       ;
+;      - ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|sel_config_i_s[5]         ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][5]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][6]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][4]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][7]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][2]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][1]                  ; 1                 ; 6       ;
+;      - uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][3]                  ; 1                 ; 6       ;
 +--------------------------------------------------------------------------------------------+-------------------+---------+
 
 
@@ -1045,44 +1180,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                                                 ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; clock_i                                                                              ; PIN_R8             ; 323     ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; reg_ctrl:reg_ctrl_inst|Decoder0~1                                                    ; LCCOMB_X49_Y14_N2  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|Decoder0~2                                                    ; LCCOMB_X48_Y14_N8  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|Decoder0~3                                                    ; LCCOMB_X47_Y12_N20 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|Decoder0~4                                                    ; LCCOMB_X47_Y12_N22 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|Decoder0~5                                                    ; LCCOMB_X48_Y14_N18 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|check_done_s                                                  ; FF_X48_Y14_N3      ; 12      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[7]~1                                        ; LCCOMB_X48_Y14_N24 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[2]~3                                            ; LCCOMB_X48_Y14_N12 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; reg_ctrl:reg_ctrl_inst|start_rw_i_r_edge                                             ; FF_X47_Y14_N23     ; 19      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; reset_n                                                                              ; PIN_J15            ; 323     ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[12]~38                         ; LCCOMB_X49_Y16_N30 ; 13      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[1]~37                          ; LCCOMB_X49_Y16_N2  ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[1]~1                          ; LCCOMB_X45_Y15_N8  ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[11]~35                    ; LCCOMB_X49_Y15_N18 ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[3]~34                     ; LCCOMB_X50_Y15_N30 ; 12      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_START                      ; FF_X49_Y15_N11     ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector3~0                            ; LCCOMB_X38_Y16_N18 ; 5       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[1]~37                 ; LCCOMB_X35_Y17_N4  ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]~14                         ; LCCOMB_X38_Y16_N24 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.LATCH_INPUTS                    ; FF_X37_Y16_N9      ; 20      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][6]~1                 ; LCCOMB_X44_Y15_N14 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][4]~9                 ; LCCOMB_X44_Y15_N16 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][0]~10                ; LCCOMB_X44_Y15_N2  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx~2                      ; LCCOMB_X46_Y15_N30 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[5]~1               ; LCCOMB_X44_Y15_N30 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[7]~4                   ; LCCOMB_X47_Y14_N12 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s~2                      ; LCCOMB_X47_Y15_N28 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|uart_resp_done_s                   ; FF_X47_Y15_N31     ; 42      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[5]~5                            ; LCCOMB_X48_Y17_N30 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24~1                             ; LCCOMB_X47_Y17_N22 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[3]~18                        ; LCCOMB_X49_Y17_N28 ; 6       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|p_inputs_latch~0                     ; LCCOMB_X48_Y17_N12 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[1]~1             ; LCCOMB_X50_Y16_N2  ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][4]~1 ; LCCOMB_X46_Y16_N10 ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s[4]~1        ; LCCOMB_X47_Y16_N8  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[9]~38      ; LCCOMB_X41_Y15_N28 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_rst_mng:ws2812_rst_mng_inst|cnt_rst_s[9]~39      ; LCCOMB_X41_Y15_N10 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; clock_i                                                                              ; PIN_R8             ; 458     ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; reg_ctrl:reg_ctrl_inst|array_reg[0][7]~10                                            ; LCCOMB_X40_Y17_N0  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|array_reg[1][7]~9                                             ; LCCOMB_X40_Y17_N2  ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|array_reg[2][7]~7                                             ; LCCOMB_X40_Y17_N16 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|array_reg[3][7]~11                                            ; LCCOMB_X40_Y17_N30 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|array_reg[4][7]~5                                             ; LCCOMB_X38_Y17_N26 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[7]~1                                        ; LCCOMB_X43_Y17_N8  ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[1]~3                                            ; LCCOMB_X39_Y17_N4  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reg_ctrl:reg_ctrl_inst|start_rw_i_r_edge                                             ; FF_X43_Y17_N11     ; 19      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; reset_n                                                                              ; PIN_J15            ; 458     ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[12]~23                         ; LCCOMB_X43_Y12_N10 ; 13      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[3]~22                          ; LCCOMB_X44_Y12_N30 ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[3]~1                          ; LCCOMB_X43_Y13_N26 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[11]~20                    ; LCCOMB_X43_Y12_N4  ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[5]~19                     ; LCCOMB_X40_Y12_N2  ; 12      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_START                      ; FF_X41_Y12_N21     ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector5~0                            ; LCCOMB_X39_Y16_N20 ; 5       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[11]~38                ; LCCOMB_X41_Y16_N4  ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[3]~12                         ; LCCOMB_X39_Y16_N30 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.LATCH_INPUTS                    ; FF_X38_Y16_N9      ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][2]~1                 ; LCCOMB_X40_Y13_N6  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][4]~9                 ; LCCOMB_X40_Y13_N0  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][1]~10                ; LCCOMB_X41_Y13_N14 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx~2                      ; LCCOMB_X41_Y14_N20 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[7]~1               ; LCCOMB_X40_Y13_N16 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rdata_reg_s[7]~4                   ; LCCOMB_X39_Y14_N8  ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s~4                      ; LCCOMB_X41_Y14_N14 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|uart_resp_done_s                   ; FF_X41_Y14_N5      ; 43      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[4]~3                            ; LCCOMB_X49_Y17_N0  ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0]~1                          ; LCCOMB_X51_Y17_N24 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[5]~8                         ; LCCOMB_X49_Y17_N26 ; 6       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|p_inputs_latch~0                     ; LCCOMB_X48_Y18_N8  ; 25      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[3]~1             ; LCCOMB_X48_Y18_N24 ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][0]~1 ; LCCOMB_X44_Y18_N4  ; 67      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_o_s~0           ; LCCOMB_X48_Y18_N20 ; 24      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|run_config_s               ; FF_X44_Y18_N9      ; 101     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
 +--------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1091,7 +1224,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name    ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +---------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; clock_i ; PIN_R8   ; 323     ; 11                                   ; Global Clock         ; GCLK18           ; --                        ;
+; clock_i ; PIN_R8   ; 458     ; 20                                   ; Global Clock         ; GCLK18           ; --                        ;
 +---------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1100,155 +1233,155 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 432 / 71,559 ( < 1 % ) ;
+; Block interconnects   ; 785 / 71,559 ( 1 % )   ;
 ; C16 interconnects     ; 3 / 2,597 ( < 1 % )    ;
-; C4 interconnects      ; 116 / 46,848 ( < 1 % ) ;
-; Direct links          ; 180 / 71,559 ( < 1 % ) ;
+; C4 interconnects      ; 213 / 46,848 ( < 1 % ) ;
+; Direct links          ; 220 / 71,559 ( < 1 % ) ;
 ; Global clocks         ; 1 / 20 ( 5 % )         ;
-; Local interconnects   ; 262 / 24,624 ( 1 % )   ;
+; Local interconnects   ; 402 / 24,624 ( 2 % )   ;
 ; R24 interconnects     ; 5 / 2,496 ( < 1 % )    ;
-; R4 interconnects      ; 169 / 62,424 ( < 1 % ) ;
+; R4 interconnects      ; 314 / 62,424 ( < 1 % ) ;
 +-----------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 12.29) ; Number of LABs  (Total = 35) ;
+; Number of Logic Elements  (Average = 13.58) ; Number of LABs  (Total = 52) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 1                            ;
-; 2                                           ; 1                            ;
-; 3                                           ; 2                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 0                            ;
-; 6                                           ; 2                            ;
-; 7                                           ; 0                            ;
-; 8                                           ; 1                            ;
-; 9                                           ; 1                            ;
-; 10                                          ; 2                            ;
-; 11                                          ; 0                            ;
-; 12                                          ; 2                            ;
+; 1                                           ; 0                            ;
+; 2                                           ; 2                            ;
+; 3                                           ; 1                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 1                            ;
+; 6                                           ; 1                            ;
+; 7                                           ; 1                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 0                            ;
+; 10                                          ; 4                            ;
+; 11                                          ; 3                            ;
+; 12                                          ; 1                            ;
 ; 13                                          ; 1                            ;
-; 14                                          ; 1                            ;
-; 15                                          ; 3                            ;
-; 16                                          ; 17                           ;
+; 14                                          ; 2                            ;
+; 15                                          ; 5                            ;
+; 16                                          ; 30                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 2.40) ; Number of LABs  (Total = 35) ;
+; LAB-wide Signals  (Average = 2.73) ; Number of LABs  (Total = 52) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 32                           ;
-; 1 Clock                            ; 32                           ;
-; 1 Clock enable                     ; 12                           ;
-; 1 Sync. clear                      ; 6                            ;
-; 2 Clock enables                    ; 2                            ;
+; 1 Async. clear                     ; 52                           ;
+; 1 Clock                            ; 52                           ;
+; 1 Clock enable                     ; 21                           ;
+; 1 Sync. clear                      ; 10                           ;
+; 2 Clock enables                    ; 7                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 21.43) ; Number of LABs  (Total = 35) ;
+; Number of Signals Sourced  (Average = 22.33) ; Number of LABs  (Total = 52) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 1                            ;
-; 2                                            ; 1                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 0                            ;
 ; 3                                            ; 1                            ;
 ; 4                                            ; 1                            ;
-; 5                                            ; 0                            ;
+; 5                                            ; 1                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 1                            ;
-; 9                                            ; 0                            ;
-; 10                                           ; 1                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 2                            ;
+; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
-; 12                                           ; 1                            ;
+; 12                                           ; 0                            ;
 ; 13                                           ; 1                            ;
-; 14                                           ; 0                            ;
-; 15                                           ; 0                            ;
-; 16                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 2                            ;
+; 16                                           ; 2                            ;
 ; 17                                           ; 1                            ;
 ; 18                                           ; 0                            ;
-; 19                                           ; 1                            ;
-; 20                                           ; 2                            ;
-; 21                                           ; 1                            ;
+; 19                                           ; 3                            ;
+; 20                                           ; 4                            ;
+; 21                                           ; 0                            ;
 ; 22                                           ; 2                            ;
-; 23                                           ; 3                            ;
+; 23                                           ; 5                            ;
 ; 24                                           ; 2                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 1                            ;
-; 27                                           ; 2                            ;
-; 28                                           ; 1                            ;
-; 29                                           ; 4                            ;
-; 30                                           ; 1                            ;
-; 31                                           ; 0                            ;
-; 32                                           ; 5                            ;
+; 25                                           ; 2                            ;
+; 26                                           ; 2                            ;
+; 27                                           ; 3                            ;
+; 28                                           ; 6                            ;
+; 29                                           ; 5                            ;
+; 30                                           ; 3                            ;
+; 31                                           ; 1                            ;
+; 32                                           ; 2                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.60) ; Number of LABs  (Total = 35) ;
+; Number of Signals Sourced Out  (Average = 8.06) ; Number of LABs  (Total = 52) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 1                            ;
+; 1                                               ; 0                            ;
 ; 2                                               ; 3                            ;
-; 3                                               ; 5                            ;
-; 4                                               ; 2                            ;
-; 5                                               ; 2                            ;
-; 6                                               ; 2                            ;
-; 7                                               ; 4                            ;
-; 8                                               ; 3                            ;
-; 9                                               ; 5                            ;
-; 10                                              ; 1                            ;
-; 11                                              ; 1                            ;
-; 12                                              ; 0                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 4                            ;
+; 5                                               ; 3                            ;
+; 6                                               ; 7                            ;
+; 7                                               ; 7                            ;
+; 8                                               ; 5                            ;
+; 9                                               ; 3                            ;
+; 10                                              ; 3                            ;
+; 11                                              ; 5                            ;
+; 12                                              ; 4                            ;
 ; 13                                              ; 2                            ;
-; 14                                              ; 0                            ;
-; 15                                              ; 0                            ;
-; 16                                              ; 3                            ;
-; 17                                              ; 0                            ;
-; 18                                              ; 0                            ;
-; 19                                              ; 0                            ;
-; 20                                              ; 0                            ;
-; 21                                              ; 0                            ;
-; 22                                              ; 1                            ;
+; 14                                              ; 2                            ;
+; 15                                              ; 1                            ;
+; 16                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 11.46) ; Number of LABs  (Total = 35) ;
+; Number of Distinct Inputs  (Average = 14.44) ; Number of LABs  (Total = 52) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
 ; 2                                            ; 0                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 2                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 1                            ;
 ; 5                                            ; 2                            ;
-; 6                                            ; 3                            ;
-; 7                                            ; 1                            ;
-; 8                                            ; 2                            ;
+; 6                                            ; 1                            ;
+; 7                                            ; 10                           ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 2                            ;
-; 10                                           ; 2                            ;
-; 11                                           ; 3                            ;
-; 12                                           ; 4                            ;
-; 13                                           ; 3                            ;
-; 14                                           ; 2                            ;
-; 15                                           ; 1                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 2                            ;
+; 12                                           ; 3                            ;
+; 13                                           ; 2                            ;
+; 14                                           ; 3                            ;
+; 15                                           ; 3                            ;
 ; 16                                           ; 1                            ;
 ; 17                                           ; 0                            ;
-; 18                                           ; 0                            ;
+; 18                                           ; 4                            ;
 ; 19                                           ; 2                            ;
 ; 20                                           ; 2                            ;
 ; 21                                           ; 1                            ;
-; 22                                           ; 0                            ;
+; 22                                           ; 4                            ;
 ; 23                                           ; 1                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 2                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1399,11 +1532,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X43_Y11 to location X53_Y22
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X43_Y11 to location X53_Y22
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.43 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1411,10 +1544,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file B:/Documents/GitHub/Pinball_Project/pinball_quartus_project/output_files/pinball.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 5461 megabytes
-    Info: Processing ended: Sat Sep 07 17:37:52 2019
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 5467 megabytes
+    Info: Processing ended: Sat Oct 12 22:41:44 2019
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +----------------------------+
