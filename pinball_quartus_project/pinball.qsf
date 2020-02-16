@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY top_pinball
+set_global_assignment -name TOP_LEVEL_ENTITY top_debug
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:29:24  AUGUST 31, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
@@ -58,6 +58,16 @@ set_location_assignment PIN_A3 -to debug_rx_uart_o
 set_location_assignment PIN_B4 -to debug_tx_uart_o
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_B12 -to ws2812_data_0_o
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE ../../VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd
+set_global_assignment -name VHDL_FILE ../../VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd
+set_global_assignment -name VHDL_FILE ../Design_FPGA/top_debug/top_debug.vhd
+set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/ws2812_registers_mngt.vhd
+set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/ws2812_leds_ctrl.vhd
+set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/ws2812_leds_mngt.vhd
 set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/ws2812_rst_mng.vhd
 set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/config_leds.vhd
 set_global_assignment -name VHDL_FILE ../../VHDL_code/WS2812_manage/sources/ws2812_mngt.vhd
@@ -73,8 +83,5 @@ set_global_assignment -name VHDL_FILE ../Design_FPGA/uart_pinball/sources/rx_uar
 set_global_assignment -name VHDL_FILE ../Design_FPGA/uart_pinball/sources/reg_ctrl.vhd
 set_global_assignment -name VHDL_FILE ../Design_FPGA/uart_pinball/sources/pkg_uart_pinball.vhd
 set_global_assignment -name VHDL_FILE ../Design_FPGA/uart_pinball/sources/pkg_uart.vhd
-set_location_assignment PIN_B12 -to ws2812_data_0_o
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SDC_FILE SDC_clock_50m.sdc
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

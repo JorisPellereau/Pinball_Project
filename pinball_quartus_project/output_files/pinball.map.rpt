@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pinball
-Sat Oct 12 22:41:35 2019
+Sun Feb 16 19:21:51 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,26 +13,19 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm
-  9. State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm
- 10. Registers Removed During Synthesis
+  8. State Machine - |top_debug|rx_uart:i_rx_uart_inst_0|rx_fsm
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst
- 15. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst
- 16. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst
- 17. Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst
- 18. Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst
- 19. Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst
- 20. Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst
- 21. Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst
- 22. Parameter Settings for User Entity Instance: reg_ctrl:reg_ctrl_inst
- 23. Port Connectivity Checks: "ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst"
- 24. Port Connectivity Checks: "ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: rx_uart:i_rx_uart_inst_0
+ 14. Parameter Settings for User Entity Instance: w_ram_manager:i_w_ram_manager_rx_uart_0
+ 15. Parameter Settings for User Entity Instance: tdpram_sclk:i_tdpram_sclk_0
+ 16. Port Connectivity Checks: "tdpram_sclk:i_tdpram_sclk_0"
+ 17. Port Connectivity Checks: "rx_uart:i_rx_uart_inst_0"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -58,16 +51,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 12 22:41:35 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Feb 16 19:21:51 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
-; Top-level Entity Name              ; top_pinball                                 ;
+; Top-level Entity Name              ; top_debug                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 753                                         ;
-;     Total combinational functions  ; 628                                         ;
-;     Dedicated logic registers      ; 458                                         ;
-; Total registers                    ; 458                                         ;
-; Total pins                         ; 7                                           ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 3                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -81,7 +74,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE22F17C6       ;                    ;
-; Top-level entity name                                            ; top_pinball        ; pinball            ;
+; Top-level entity name                                            ; top_debug          ; pinball            ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -170,108 +163,70 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
-+----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                         ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                              ; Library ;
-+----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
-; ../../VHDL_code/WS2812_manage/sources/config_leds.vhd    ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/config_leds.vhd                       ;         ;
-; ../../VHDL_code/WS2812_manage/sources/ws2812_mngt.vhd    ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_mngt.vhd                       ;         ;
-; ../../VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd    ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd                       ;         ;
-; ../../VHDL_code/WS2812_manage/sources/ws2812.vhd         ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812.vhd                            ;         ;
-; ../../VHDL_code/WS2812_manage/sources/pkg_ws2812.vhd     ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/pkg_ws2812.vhd                        ;         ;
-; ../Design_FPGA/top_pinball/top_pinball.vhd               ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd               ;         ;
-; ../Design_FPGA/top_pinball/pkg_pinball.vhd               ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/pkg_pinball.vhd               ;         ;
-; ../Design_FPGA/uart_pinball/sources/uart_mngt.vhd        ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd        ;         ;
-; ../Design_FPGA/uart_pinball/sources/uart_ctrl.vhd        ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd        ;         ;
-; ../Design_FPGA/uart_pinball/sources/tx_uart.vhd          ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/tx_uart.vhd          ;         ;
-; ../Design_FPGA/uart_pinball/sources/rx_uart.vhd          ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd          ;         ;
-; ../Design_FPGA/uart_pinball/sources/reg_ctrl.vhd         ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/reg_ctrl.vhd         ;         ;
-; ../Design_FPGA/uart_pinball/sources/pkg_uart_pinball.vhd ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart_pinball.vhd ;         ;
-; ../Design_FPGA/uart_pinball/sources/pkg_uart.vhd         ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd         ;         ;
-+----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++---------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
++---------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
+; ../../VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd        ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd                          ;         ;
+; ../../VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd                   ;         ;
+; ../Design_FPGA/top_debug/top_debug.vhd            ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd           ;         ;
+; ../Design_FPGA/uart_pinball/sources/rx_uart.vhd   ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd  ;         ;
+; ../Design_FPGA/uart_pinball/sources/pkg_uart.vhd  ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd ;         ;
++---------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 753           ;
-;                                             ;               ;
-; Total combinational functions               ; 628           ;
-; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 361           ;
-;     -- 3 input functions                    ; 73            ;
-;     -- <=2 input functions                  ; 194           ;
-;                                             ;               ;
-; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 581           ;
-;     -- arithmetic mode                      ; 47            ;
-;                                             ;               ;
-; Total registers                             ; 458           ;
-;     -- Dedicated logic registers            ; 458           ;
-;     -- I/O registers                        ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 7             ;
-;                                             ;               ;
-; Embedded Multiplier 9-bit elements          ; 0             ;
-;                                             ;               ;
-; Maximum fan-out node                        ; clock_i~input ;
-; Maximum fan-out                             ; 458           ;
-; Total fan-out                               ; 3803          ;
-; Average fan-out                             ; 3.46          ;
-+---------------------------------------------+---------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 3     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 3     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                   ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+-------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+-------------+--------------+
-; |top_pinball                         ; 628 (0)             ; 458 (2)                   ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |top_pinball                                                           ; top_pinball ; work         ;
-;    |reg_ctrl:reg_ctrl_inst|          ; 61 (61)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|reg_ctrl:reg_ctrl_inst                                    ; reg_ctrl    ; work         ;
-;    |uart_ctrl:uart_ctrl_inst|        ; 202 (0)             ; 157 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst                                  ; uart_ctrl   ; work         ;
-;       |rx_uart:rx_uart_inst|         ; 80 (80)             ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst             ; rx_uart     ; work         ;
-;       |tx_uart:tx_uart_inst|         ; 57 (57)             ; 38 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst             ; tx_uart     ; work         ;
-;       |uart_mngt:uart_mngt_inst|     ; 65 (65)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst         ; uart_mngt   ; work         ;
-;    |ws2812_ctrl:ws2812_ctrl_inst|    ; 365 (0)             ; 227 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst                              ; ws2812_ctrl ; work         ;
-;       |WS2812:ws2812_inst|           ; 52 (52)             ; 44 (44)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst           ; WS2812      ; work         ;
-;       |config_leds:config_leds_inst| ; 125 (125)           ; 83 (83)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst ; config_leds ; work         ;
-;       |ws2812_mngt:ws2812_mngt_inst| ; 188 (188)           ; 100 (100)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst ; ws2812_mngt ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |top_debug                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |top_debug          ; top_debug   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm                                                                         ;
-+----------------------+-------------+---------------------+-------------------+-----------------+----------------------+---------------------+-------------+
-; Name                 ; tx_fsm.STOP ; tx_fsm.STOP_BIT_GEN ; tx_fsm.PARITY_GEN ; tx_fsm.DATA_GEN ; tx_fsm.START_BIT_GEN ; tx_fsm.LATCH_INPUTS ; tx_fsm.IDLE ;
-+----------------------+-------------+---------------------+-------------------+-----------------+----------------------+---------------------+-------------+
-; tx_fsm.IDLE          ; 0           ; 0                   ; 0                 ; 0               ; 0                    ; 0                   ; 0           ;
-; tx_fsm.LATCH_INPUTS  ; 0           ; 0                   ; 0                 ; 0               ; 0                    ; 1                   ; 1           ;
-; tx_fsm.START_BIT_GEN ; 0           ; 0                   ; 0                 ; 0               ; 1                    ; 0                   ; 1           ;
-; tx_fsm.DATA_GEN      ; 0           ; 0                   ; 0                 ; 1               ; 0                    ; 0                   ; 1           ;
-; tx_fsm.PARITY_GEN    ; 0           ; 0                   ; 1                 ; 0               ; 0                    ; 0                   ; 1           ;
-; tx_fsm.STOP_BIT_GEN  ; 0           ; 1                   ; 0                 ; 0               ; 0                    ; 0                   ; 1           ;
-; tx_fsm.STOP          ; 1           ; 0                   ; 0                 ; 0               ; 0                    ; 0                   ; 1           ;
-+----------------------+-------------+---------------------+-------------------+-----------------+----------------------+---------------------+-------------+
-
-
-Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm                                                                       ;
+; State Machine - |top_debug|rx_uart:i_rx_uart_inst_0|rx_fsm                                                                                              ;
 +----------------------+-------------+----------------------+--------------------+------------------+-------------------+-------------------+-------------+
 ; Name                 ; rx_fsm.STOP ; rx_fsm.READ_STOP_BIT ; rx_fsm.READ_PARITY ; rx_fsm.READ_DATA ; rx_fsm.READ_START ; rx_fsm.WAIT_START ; rx_fsm.IDLE ;
 +----------------------+-------------+----------------------+--------------------+------------------+-------------------+-------------------+-------------+
@@ -285,269 +240,51 @@ Encoding Type:  One-Hot
 +----------------------+-------------+----------------------+--------------------+------------------+-------------------+-------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                    ;
-+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-; Register name                                                                       ; Reason for Removal                                                                              ;
-+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[0]                             ; Merged with ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[5]                             ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[2]                             ; Merged with ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[3]                             ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][21]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][18]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][17]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][17]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][23]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][22]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][21]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][22]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][18]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][22]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][20]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][20]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][18]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][18]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][18]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][17]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][17]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][17]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][9]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][15]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][14]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][10]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][10]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][14]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][13]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][14]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][13]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][8]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][8]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][8]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][8]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][5]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][5]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][4]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][4]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[0][1]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][20]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][20]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][16]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][20]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][17]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][17]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][17]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][9]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][9]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][13]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][11]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][14]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][11]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][10]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][9]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][10]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][7]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][7]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][6]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][6]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][1]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][5]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][5]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][0]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][4]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][0]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][4]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][4]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][0]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][4]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[1][0]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][23]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][16]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][20]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][16]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][20]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][19]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][17]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][22]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][19]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][21]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][18]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][20]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][16]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][14]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][14]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][14]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][12]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][12]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][8]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][12]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][10]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][13]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][9]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][12]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[2][8]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][21]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][21]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][21]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][17]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][16]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][16]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][14]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][14]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][15]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][4]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][0]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][0]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][0]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][4]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[3][0]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][14]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][11]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[4][11]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][5]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][3]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][3]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][3]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][2]      ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[5][3]      ;
-; ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[7][11]     ; Merged with ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst|config_led_o_s[6][13]     ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][21] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][17] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][17] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][18] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][18] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][14] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][10] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][10] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][13] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][13] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][14] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][8]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][8]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][8]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][8]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][5]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][5]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][4]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][4]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][1]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][16] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][20] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][17] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][14] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][11] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][11] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][5]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][5]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][4]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][0]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][4]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][0]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][18] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][22] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][21] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][21] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][21] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][20] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][16] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][12] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][12] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][8]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][12] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][9]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][10] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][13] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][12] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][8]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][21] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][21] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][21] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][16] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][16] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][14] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][14] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][13] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][1]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][2]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][4]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][0]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][16] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][16] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][0]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][4]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][19] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][5]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][0]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][0]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][22] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][21] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][22] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][21] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][18] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][17] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][9]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][15] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][14] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][3]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][18] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][20] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][20] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][9]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][9]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][13] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][10] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][7]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][21] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][22] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][19] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][17] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][10] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][9]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][6]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][14] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][11] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[7][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][3]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][23] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][23] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][20] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][20] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][2]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[0][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][17] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][18] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][6]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][7]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][0]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[1][4]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][16] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][20] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[6][11] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][11] ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[4][4]  ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[3][0]  ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[5][15] ; Merged with ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][14] ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[3]                             ; Stuck at GND due to stuck port data_in                                                          ;
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_fsm.PARITY_GEN                     ; Stuck at GND due to stuck port data_in                                                          ;
-; uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|rx_fsm.READ_PARITY                    ; Stuck at GND due to stuck port data_in                                                          ;
-; ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[3]              ; Stuck at GND due to stuck port data_in                                                          ;
-; Total Number of Removed Registers = 256                                             ;                                                                                                 ;
-+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------+
+; Registers Removed During Synthesis                                 ;
++-----------------------------------------------+--------------------+
+; Register name                                 ; Reason for Removal ;
++-----------------------------------------------+--------------------+
+; rx_uart:i_rx_uart_inst_0|tick_data            ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_stop_bit         ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_data[0..3]       ; Lost fanout        ;
+; s_rx_uart_p                                   ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_old               ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_bit[3..12]       ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_half_bit[2..11]  ; Lost fanout        ;
+; s_rx_uart                                     ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_bit[0..2]        ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_half_bit[0,1]    ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.IDLE          ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.WAIT_START    ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_START    ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_DATA     ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_PARITY   ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_STOP_BIT ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|rx_fsm.STOP          ; Lost fanout        ;
+; Total Number of Removed Registers = 41        ;                    ;
++-----------------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                     ;
++--------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; Register name                        ; Reason for Removal ; Registers Removed due to This Register                                              ;
++--------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; rx_uart:i_rx_uart_inst_0|tick_data   ; Lost Fanouts       ; rx_uart:i_rx_uart_inst_0|cnt_bit[12], rx_uart:i_rx_uart_inst_0|cnt_bit[11],         ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_bit[10], rx_uart:i_rx_uart_inst_0|cnt_half_bit[11],    ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[10],                                          ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[9], rx_uart:i_rx_uart_inst_0|cnt_half_bit[8], ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.WAIT_START,                                         ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_START,                                         ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_DATA,                                          ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_PARITY,                                        ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_STOP_BIT,                                      ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.STOP                                                ;
+; rx_uart:i_rx_uart_inst_0|cnt_data[3] ; Lost Fanouts       ; rx_uart:i_rx_uart_inst_0|cnt_data[2], rx_uart:i_rx_uart_inst_0|cnt_data[1],         ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_data[0]                                                ;
+; s_rx_uart_p                          ; Lost Fanouts       ; s_rx_uart                                                                           ;
++--------------------------------------+--------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -555,70 +292,36 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 458   ;
-; Number of registers using Synchronous Clear  ; 89    ;
-; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 458   ;
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 286   ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------+
-; Inverted Register Statistics                                           ;
-+--------------------------------------------------------------+---------+
-; Inverted Register                                            ; Fan out ;
-+--------------------------------------------------------------+---------+
-; uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|tx_s           ; 3       ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|frame_done_s ; 5       ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0]    ; 12      ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[4]    ; 4       ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[2]    ; 10      ;
-; ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[1]    ; 9       ;
-; Total number of inverted registers = 6                       ;         ;
-+--------------------------------------------------------------+---------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_pwm[5]                         ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|rcvd_addr_reg_i_s[7]                                        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|rcvd_addr_reg_s[7]               ;
-; 3:1                ; 67 bits   ; 134 LEs       ; 67 LEs               ; 67 LEs                 ; Yes        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|led_config_array_s[2][0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_rx[0]                   ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_bit_duration[11]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[0][2]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[2][1]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|byte_array[1][4]                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|TH_s[4]                            ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_bit[3]                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|cnt_data[0]                          ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_half_bit[5]                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst|cnt_led_s[3]             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|cnt_data[3]                          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|cnt_byte_tx[1]                   ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |top_pinball|reg_ctrl:reg_ctrl_inst|rdata_reg_o_s[1]                                            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[6]                   ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_pinball|uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst|tx_data_o_s[7]                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_pinball|ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0]                          ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector6                            ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst|Selector3                            ;
-; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector6                            ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |top_pinball|uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst|Selector5                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_bit[6]       ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_half_bit[11] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_data[3]      ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector6        ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector5        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst ;
+; Parameter Settings for User Entity Instance: rx_uart:i_rx_uart_inst_0 ;
 +-----------------+-----------+-----------------------------------------+
 ; Parameter Name  ; Value     ; Type                                    ;
 +-----------------+-----------+-----------------------------------------+
 ; stop_bit_number ; 1         ; Signed Integer                          ;
-; parity          ; none      ; Enumerated                              ;
+; parity          ; even      ; Enumerated                              ;
 ; baudrate        ; b9600     ; Enumerated                              ;
 ; data_size       ; 8         ; Signed Integer                          ;
 ; polarity        ; '1'       ; Enumerated                              ;
@@ -628,144 +331,57 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; data_size      ; 8     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: w_ram_manager:i_w_ram_manager_rx_uart_0 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; g_addr_width   ; 8     ; Signed Integer                                              ;
+; g_data_width   ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst ;
-+-----------------+-----------+--------------------------------------------------------------+
-; Parameter Name  ; Value     ; Type                                                         ;
-+-----------------+-----------+--------------------------------------------------------------+
-; stop_bit_number ; 1         ; Signed Integer                                               ;
-; parity          ; none      ; Enumerated                                                   ;
-; baudrate        ; b9600     ; Enumerated                                                   ;
-; data_size       ; 8         ; Signed Integer                                               ;
-; polarity        ; '1'       ; Enumerated                                                   ;
-; first_bit       ; lsb_first ; Enumerated                                                   ;
-; clock_frequency ; 50000000  ; Signed Integer                                               ;
-+-----------------+-----------+--------------------------------------------------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tdpram_sclk:i_tdpram_sclk_0 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; g_addr_width   ; 8     ; Signed Integer                                  ;
+; g_data_width   ; 8     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst ;
-+-----------------+-----------+--------------------------------------------------------------+
-; Parameter Name  ; Value     ; Type                                                         ;
-+-----------------+-----------+--------------------------------------------------------------+
-; stop_bit_number ; 1         ; Signed Integer                                               ;
-; parity          ; none      ; Enumerated                                                   ;
-; baudrate        ; b9600     ; Enumerated                                                   ;
-; data_size       ; 8         ; Signed Integer                                               ;
-; polarity        ; '1'       ; Enumerated                                                   ;
-; first_bit       ; lsb_first ; Enumerated                                                   ;
-; clock_frequency ; 50000000  ; Signed Integer                                               ;
-+-----------------+-----------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tdpram_sclk:i_tdpram_sclk_0"                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; o_rdata_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_rdata_b ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; g_led_number   ; 8     ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst ;
-+----------------+-------+-------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                          ;
-+----------------+-------+-------------------------------------------------------------------------------+
-; g_led_number   ; 8     ; Signed Integer                                                                ;
-+----------------+-------+-------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst ;
-+----------------+-------+-------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                          ;
-+----------------+-------+-------------------------------------------------------------------------------+
-; g_led_number   ; 8     ; Signed Integer                                                                ;
-+----------------+-------+-------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst ;
-+----------------+-------+---------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                ;
-+----------------+-------+---------------------------------------------------------------------+
-; t0h            ; 18    ; Signed Integer                                                      ;
-; t0l            ; 40    ; Signed Integer                                                      ;
-; t1h            ; 35    ; Signed Integer                                                      ;
-; t1l            ; 30    ; Signed Integer                                                      ;
-+----------------+-------+---------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_ctrl:reg_ctrl_inst ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; data_size      ; 8     ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst"                                   ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; config_done_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst"                                    ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; config_valid_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx_uart:i_rx_uart_inst_0"                                                                  ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; parity_rcvd ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 7                           ;
-; cycloneiii_ff         ; 458                         ;
-;     CLR               ; 135                         ;
-;     CLR SCLR          ; 36                          ;
-;     CLR SLD           ; 1                           ;
-;     ENA CLR           ; 233                         ;
-;     ENA CLR SCLR      ; 53                          ;
-; cycloneiii_lcell_comb ; 629                         ;
-;     arith             ; 47                          ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 582                         ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 140                         ;
-;         3 data inputs ; 72                          ;
-;         4 data inputs ; 361                         ;
-;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 2.15                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 3                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -773,7 +389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -783,10 +399,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Oct 12 22:41:22 2019
+    Info: Processing started: Sun Feb 16 19:21:37 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pinball -c pinball
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ram/tdpram/tdpram_sclk.vhd
+    Info (12022): Found design unit 1: tdpram_sclk-behv File: B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd Line: 50
+    Info (12023): Found entity 1: tdpram_sclk File: B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ram/ram_manager/w_ram_manager.vhd
+    Info (12022): Found design unit 1: w_ram_manager-behv File: B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd Line: 44
+    Info (12023): Found entity 1: w_ram_manager File: B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/pinball_project/design_fpga/top_debug/top_debug.vhd
+    Info (12022): Found design unit 1: top_debug-behv File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 38
+    Info (12023): Found entity 1: top_debug File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 29
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ws2812_manage/sources/ws2812_registers_mngt.vhd
+    Info (12022): Found design unit 1: ws2812_registers_mngt-arch_ws2812_registers_mngt File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_registers_mngt.vhd Line: 48
+    Info (12023): Found entity 1: ws2812_registers_mngt File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_registers_mngt.vhd Line: 28
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ws2812_manage/sources/ws2812_leds_ctrl.vhd
+    Info (12022): Found design unit 1: ws2812_leds_ctrl-arch_ws2812_leds_ctrl File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_leds_ctrl.vhd Line: 46
+    Info (12023): Found entity 1: ws2812_leds_ctrl File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_leds_ctrl.vhd Line: 29
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ws2812_manage/sources/ws2812_leds_mngt.vhd
+    Info (12022): Found design unit 1: ws2812_leds_mngt-arch_ws2812_leds_mngt File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_leds_mngt.vhd Line: 53
+    Info (12023): Found entity 1: ws2812_leds_mngt File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_leds_mngt.vhd Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ws2812_manage/sources/ws2812_rst_mng.vhd
     Info (12022): Found design unit 1: ws2812_rst_mng-arch_ws2812_rst_mng File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_rst_mng.vhd Line: 37
     Info (12023): Found entity 1: ws2812_rst_mng File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_rst_mng.vhd Line: 25
@@ -829,41 +463,33 @@ Info (12021): Found 1 design units, including 0 entities, in source file /docume
 Info (12021): Found 2 design units, including 0 entities, in source file /documents/github/pinball_project/design_fpga/uart_pinball/sources/pkg_uart.vhd
     Info (12022): Found design unit 1: pkg_uart File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 26
     Info (12022): Found design unit 2: pkg_uart-body File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 113
-Info (12127): Elaborating entity "top_pinball" for the top level hierarchy
-Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 103
-Info (12128): Elaborating entity "uart_mngt" for hierarchy "uart_ctrl:uart_ctrl_inst|uart_mngt:uart_mngt_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 115
-Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(101): object "uart_cmd_ok_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 101
-Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(102): object "uart_cmd_ko_s" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 102
-Warning (10036): Verilog HDL or VHDL warning at uart_mngt.vhd(108): object "raz_cmd_ok" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_mngt.vhd Line: 108
-Info (12128): Elaborating entity "rx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|rx_uart:rx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 145
+Info (12127): Elaborating entity "top_debug" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(86): object "s_parity_rcvd" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 86
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(95): object "s_rdata_a_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 95
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(97): used implicit default value for signal "s_addr_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 97
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(98): used implicit default value for signal "s_data_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 98
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(99): used implicit default value for signal "s_me_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 99
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(100): used implicit default value for signal "s_we_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 100
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(101): object "s_rdata_b_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 101
+Info (12128): Elaborating entity "rx_uart" for hierarchy "rx_uart:i_rx_uart_inst_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 118
 Warning (10036): Verilog HDL or VHDL warning at rx_uart.vhd(60): object "start_cnt" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd Line: 60
-Info (12128): Elaborating entity "tx_uart" for hierarchy "uart_ctrl:uart_ctrl_inst|tx_uart:tx_uart_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/uart_ctrl.vhd Line: 163
-Info (12128): Elaborating entity "ws2812_ctrl" for hierarchy "ws2812_ctrl:ws2812_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 129
-Warning (10036): Verilog HDL or VHDL warning at ws2812_ctrl.vhd(45): object "config_valid_s" assigned a value but never read File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 45
-Warning (10036): Verilog HDL or VHDL warning at ws2812_ctrl.vhd(52): object "config_done_s" assigned a value but never read File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 52
-Warning (10036): Verilog HDL or VHDL warning at ws2812_ctrl.vhd(55): object "reset_gen_s" assigned a value but never read File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 55
-Info (12128): Elaborating entity "config_leds" for hierarchy "ws2812_ctrl:ws2812_ctrl_inst|config_leds:config_leds_inst" File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 64
-Info (12128): Elaborating entity "ws2812_mngt" for hierarchy "ws2812_ctrl:ws2812_ctrl_inst|ws2812_mngt:ws2812_mngt_inst" File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 86
-Info (12128): Elaborating entity "WS2812" for hierarchy "ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst" File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812_ctrl.vhd Line: 101
-Info (12128): Elaborating entity "reg_ctrl" for hierarchy "reg_ctrl:reg_ctrl_inst" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_pinball/top_pinball.vhd Line: 142
-Info (13000): Registers with preset signals will power-up high File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/tx_uart.vhd Line: 210
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Info (286030): Timing-Driven Synthesis is running
-Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[4] will power up to High File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812.vhd Line: 131
-    Critical Warning (18010): Register ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[2] will power up to High File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812.vhd Line: 131
-    Critical Warning (18010): Register ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[1] will power up to High File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812.vhd Line: 131
-    Critical Warning (18010): Register ws2812_ctrl:ws2812_ctrl_inst|WS2812:ws2812_inst|cnt_24[0] will power up to High File: B:/Documents/GitHub/VHDL_code/WS2812_manage/sources/ws2812.vhd Line: 131
+Info (12128): Elaborating entity "w_ram_manager" for hierarchy "w_ram_manager:i_w_ram_manager_rx_uart_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 137
+Warning (10541): VHDL Signal Declaration warning at w_ram_manager.vhd(37): used implicit default value for signal "o_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd Line: 37
+Info (12128): Elaborating entity "tdpram_sclk" for hierarchy "tdpram_sclk:i_tdpram_sclk_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 152
+Info (17049): 41 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 773 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 32
+    Warning (15610): No output dependent on input pin "rst_n" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 33
+    Warning (15610): No output dependent on input pin "i_rx_uart" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 34
+Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 766 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4814 megabytes
-    Info: Processing ended: Sat Oct 12 22:41:35 2019
-    Info: Elapsed time: 00:00:13
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Sun Feb 16 19:21:51 2020
+    Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:25
 
 

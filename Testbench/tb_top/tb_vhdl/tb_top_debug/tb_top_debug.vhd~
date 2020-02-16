@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+-- Title      : TESTBENCH TOP for top_debug.vhd
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : tb_top_debug.vhd
+-- Author     :   <JorisP@DESKTOP-LO58CMN>
+-- Company    : 
+-- Created    : 2020-02-16
+-- Last update: 2020-02-16
+-- Platform   : 
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description: TB TOP
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2020-02-16  1.0      JorisP  Created
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity tb_top_debug is
+
+end entity tb_top_debug;
+
+architecture behv of tb_top_debug is
+
+begin  -- architecture behv
+
+
+
+end architecture behv;

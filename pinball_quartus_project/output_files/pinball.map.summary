@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Oct 12 22:41:35 2019
+Analysis & Synthesis Status : Successful - Sun Feb 16 19:21:51 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : pinball
-Top-level Entity Name : top_pinball
+Top-level Entity Name : top_debug
 Family : Cyclone IV E
-Total logic elements : 753
-    Total combinational functions : 628
-    Dedicated logic registers : 458
-Total registers : 458
-Total pins : 7
+Total logic elements : 0
+    Total combinational functions : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 3
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

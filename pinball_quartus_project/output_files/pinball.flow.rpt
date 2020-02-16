@@ -1,5 +1,5 @@
 Flow report for pinball
-Sat Oct 12 22:41:52 2019
+Sun Feb 16 19:22:12 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Oct 12 22:41:52 2019       ;
+; Flow Status                        ; Successful - Sun Feb 16 19:22:12 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
-; Top-level Entity Name              ; top_pinball                                 ;
+; Top-level Entity Name              ; top_debug                                   ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 706 / 22,320 ( 3 % )                        ;
-;     Total combinational functions  ; 629 / 22,320 ( 3 % )                        ;
-;     Dedicated logic registers      ; 458 / 22,320 ( 2 % )                        ;
-; Total registers                    ; 458                                         ;
-; Total pins                         ; 7 / 154 ( 5 % )                             ;
+; Total logic elements               ; 0 / 22,320 ( 0 % )                          ;
+;     Total combinational functions  ; 0 / 22,320 ( 0 % )                          ;
+;     Dedicated logic registers      ; 0 / 22,320 ( 0 % )                          ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 3 / 154 ( 2 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/12/2019 22:41:22 ;
+; Start date & time ; 02/16/2020 19:21:38 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; pinball             ;
 +-------------------+---------------------+
@@ -75,20 +75,20 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 13870911113356.157091288207072         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 233360586667331.158187729805368        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; top_pinball ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; top_pinball ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; top_pinball ; Top            ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; top_debug   ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; top_debug   ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; top_debug   ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; top_pinball                            ; pinball       ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; top_debug                              ; pinball       ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -97,12 +97,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4814 MB             ; 00:00:25                           ;
-; Fitter               ; 00:00:07     ; 1.0                     ; 5467 MB             ; 00:00:11                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4687 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4789 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4665 MB             ; 00:00:01                           ;
-; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:40                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4797 MB             ; 00:00:25                           ;
+; Fitter               ; 00:00:10     ; 1.0                     ; 5433 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4687 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4780 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4650 MB             ; 00:00:01                           ;
+; Total                ; 00:00:28     ; --                      ; --                  ; 00:00:35                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -6,7 +6,7 @@
 -- Author     :   <pellereau@D-R81A4E3>
 -- Company    : 
 -- Created    : 2019-08-30
--- Last update: 2019-10-12
+-- Last update: 2019-11-24
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -58,8 +58,8 @@ end entity top_pinball;
 architecture arch_top_pinball of top_pinball is
 
   -- CONSTANTS
-  constant C_LED_NB_1 : integer := 8;   -- Number of leds on the 1st WS2812 command
-  
+  constant C_LED_NB_1 : integer := 8;  -- Number of leds on the 1st WS2812 command
+
   -- SIGNALS LATCHS
   signal rx_uart_i_s  : std_logic;
   signal rx_uart_i_ss : std_logic;
@@ -124,17 +124,34 @@ begin  -- architecture arch_top_pinball
 
   tx_uart_o <= tx_uart_o_s;
 
+  -- WS2812_LEDS_CTRL inst
+  ws2812_leds_ctrl_inst : ws2812_leds_ctrl
+    generic map (
+      G_LEDS_NB          => 8,
+      G_REFRESH_CNT_SIZE => 32)
+
+    port map (
+      clock               => clock_i,
+      rst_n               => reset_n,
+      i_en                => reg_sel_config_ws2812_led0_s(0),
+      i_stat_dyn          => reg_sel_config_ws2812_led0_s(1),
+      i_leds_conf_update  => reg_sel_config_ws2812_led0_s(2),
+      i_rfrsf_value_valid => '1',
+      i_rfrsf_value       => x"00500000",
+      o_d_out             => ws2812_data_0_o_s);  -- WS2812 Output
+
+
 
   -- WS2812_CTRL INST
-  ws2812_ctrl_inst : ws2812_ctrl
-    generic map (
-      G_LED_NUMBER => C_LED_NB_1)
-    port map (
-      clock_i           => clock_i,
-      reset_n           => reset_n,
-      sel_config_i      => reg_sel_config_ws2812_led0_s,
-      ws2812_leds_cmd_i => reg_cmd_ws2812_led0_s,
-      ws2812_data_o     => ws2812_data_0_o_s);
+  -- ws2812_ctrl_inst : ws2812_ctrl
+  --   generic map (
+  --     G_LED_NUMBER => C_LED_NB_1)
+  --   port map (
+  --     clock_i           => clock_i,
+  --     reset_n           => reset_n,
+  --     sel_config_i      => reg_sel_config_ws2812_led0_s,
+  --     ws2812_leds_cmd_i => reg_cmd_ws2812_led0_s,
+  --     ws2812_data_o     => ws2812_data_0_o_s);
 
   ws2812_data_0_o <= ws2812_data_0_o_s;
 
