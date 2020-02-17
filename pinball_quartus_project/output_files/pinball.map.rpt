@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pinball
-Sun Feb 16 19:21:51 2020
+Mon Feb 17 21:52:38 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -21,11 +21,13 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  13. Parameter Settings for User Entity Instance: rx_uart:i_rx_uart_inst_0
  14. Parameter Settings for User Entity Instance: w_ram_manager:i_w_ram_manager_rx_uart_0
  15. Parameter Settings for User Entity Instance: tdpram_sclk:i_tdpram_sclk_0
- 16. Port Connectivity Checks: "tdpram_sclk:i_tdpram_sclk_0"
- 17. Port Connectivity Checks: "rx_uart:i_rx_uart_inst_0"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+ 16. Parameter Settings for User Entity Instance: pattern_detector:i_pattern_detector_0
+ 17. Port Connectivity Checks: "pattern_detector:i_pattern_detector_0"
+ 18. Port Connectivity Checks: "tdpram_sclk:i_tdpram_sclk_0"
+ 19. Port Connectivity Checks: "rx_uart:i_rx_uart_inst_0"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -51,7 +53,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 16 19:21:51 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 17 21:52:38 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; pinball                                     ;
 ; Top-level Entity Name              ; top_debug                                   ;
@@ -175,6 +177,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path                  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
 +---------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
+; ../../VHDL_code/MISC/pattern_detector.vhd         ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/MISC/pattern_detector.vhd                           ;         ;
 ; ../../VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd        ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd                          ;         ;
 ; ../../VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd ; yes             ; User VHDL File  ; B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd                   ;         ;
 ; ../Design_FPGA/top_debug/top_debug.vhd            ; yes             ; User VHDL File  ; B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd           ;         ;
@@ -250,11 +253,10 @@ Encoding Type:  One-Hot
 ; rx_uart:i_rx_uart_inst_0|cnt_data[0..3]       ; Lost fanout        ;
 ; s_rx_uart_p                                   ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_old               ; Lost fanout        ;
-; rx_uart:i_rx_uart_inst_0|cnt_bit[3..12]       ; Lost fanout        ;
-; rx_uart:i_rx_uart_inst_0|cnt_half_bit[2..11]  ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_bit[1..8]        ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_half_bit[0..7]   ; Lost fanout        ;
 ; s_rx_uart                                     ; Lost fanout        ;
-; rx_uart:i_rx_uart_inst_0|cnt_bit[0..2]        ; Lost fanout        ;
-; rx_uart:i_rx_uart_inst_0|cnt_half_bit[0,1]    ; Lost fanout        ;
+; rx_uart:i_rx_uart_inst_0|cnt_bit[0]           ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.IDLE          ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.WAIT_START    ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_START    ; Lost fanout        ;
@@ -262,7 +264,7 @@ Encoding Type:  One-Hot
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_PARITY   ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_STOP_BIT ; Lost fanout        ;
 ; rx_uart:i_rx_uart_inst_0|rx_fsm.STOP          ; Lost fanout        ;
-; Total Number of Removed Registers = 41        ;                    ;
+; Total Number of Removed Registers = 33        ;                    ;
 +-----------------------------------------------+--------------------+
 
 
@@ -271,10 +273,10 @@ Encoding Type:  One-Hot
 +--------------------------------------+--------------------+-------------------------------------------------------------------------------------+
 ; Register name                        ; Reason for Removal ; Registers Removed due to This Register                                              ;
 +--------------------------------------+--------------------+-------------------------------------------------------------------------------------+
-; rx_uart:i_rx_uart_inst_0|tick_data   ; Lost Fanouts       ; rx_uart:i_rx_uart_inst_0|cnt_bit[12], rx_uart:i_rx_uart_inst_0|cnt_bit[11],         ;
-;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_bit[10], rx_uart:i_rx_uart_inst_0|cnt_half_bit[11],    ;
-;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[10],                                          ;
-;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[9], rx_uart:i_rx_uart_inst_0|cnt_half_bit[8], ;
+; rx_uart:i_rx_uart_inst_0|tick_data   ; Lost Fanouts       ; rx_uart:i_rx_uart_inst_0|cnt_bit[8], rx_uart:i_rx_uart_inst_0|cnt_bit[7],           ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_bit[6], rx_uart:i_rx_uart_inst_0|cnt_half_bit[7],      ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[6], rx_uart:i_rx_uart_inst_0|cnt_half_bit[5], ;
+;                                      ;                    ; rx_uart:i_rx_uart_inst_0|cnt_half_bit[4],                                           ;
 ;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.WAIT_START,                                         ;
 ;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_START,                                         ;
 ;                                      ;                    ; rx_uart:i_rx_uart_inst_0|rx_fsm.READ_DATA,                                          ;
@@ -302,17 +304,17 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_bit[6]       ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_half_bit[11] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_data[3]      ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector6        ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector5        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_bit[8]      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_half_bit[7] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_debug|rx_uart:i_rx_uart_inst_0|cnt_data[3]     ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector0       ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |top_debug|rx_uart:i_rx_uart_inst_0|Selector3       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -322,7 +324,7 @@ Encoding Type:  One-Hot
 +-----------------+-----------+-----------------------------------------+
 ; stop_bit_number ; 1         ; Signed Integer                          ;
 ; parity          ; even      ; Enumerated                              ;
-; baudrate        ; b9600     ; Enumerated                              ;
+; baudrate        ; b115200   ; Enumerated                              ;
 ; data_size       ; 8         ; Signed Integer                          ;
 ; polarity        ; '1'       ; Enumerated                              ;
 ; first_bit       ; lsb_first ; Enumerated                              ;
@@ -351,6 +353,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; g_data_width   ; 8     ; Signed Integer                                  ;
 +----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pattern_detector:i_pattern_detector_0 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; g_data_width   ; 8     ; Signed Integer                                            ;
+; g_pattern_size ; 3     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pattern_detector:i_pattern_detector_0"                                                            ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; o_pattern_detected ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -399,10 +421,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Feb 16 19:21:37 2020
+    Info: Processing started: Mon Feb 17 21:52:26 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pinball -c pinball
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/misc/pattern_detector.vhd
+    Info (12022): Found design unit 1: pattern_detector-behv File: B:/Documents/GitHub/VHDL_code/MISC/pattern_detector.vhd Line: 40
+    Info (12023): Found entity 1: pattern_detector File: B:/Documents/GitHub/VHDL_code/MISC/pattern_detector.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/github/vhdl_code/ram/tdpram/tdpram_sclk.vhd
     Info (12022): Found design unit 1: tdpram_sclk-behv File: B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd Line: 50
     Info (12023): Found entity 1: tdpram_sclk File: B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd Line: 26
@@ -464,19 +489,20 @@ Info (12021): Found 2 design units, including 0 entities, in source file /docume
     Info (12022): Found design unit 1: pkg_uart File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 26
     Info (12022): Found design unit 2: pkg_uart-body File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/pkg_uart.vhd Line: 113
 Info (12127): Elaborating entity "top_debug" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(86): object "s_parity_rcvd" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 86
-Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(95): object "s_rdata_a_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 95
-Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(97): used implicit default value for signal "s_addr_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 97
-Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(98): used implicit default value for signal "s_data_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 98
-Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(99): used implicit default value for signal "s_me_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 99
-Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(100): used implicit default value for signal "s_we_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 100
-Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(101): object "s_rdata_b_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 101
-Info (12128): Elaborating entity "rx_uart" for hierarchy "rx_uart:i_rx_uart_inst_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 118
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(98): object "s_parity_rcvd" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 98
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(107): object "s_rdata_a_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 107
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(109): used implicit default value for signal "s_addr_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 109
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(110): used implicit default value for signal "s_data_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 110
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(111): used implicit default value for signal "s_me_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 111
+Warning (10541): VHDL Signal Declaration warning at top_debug.vhd(112): used implicit default value for signal "s_we_b_rx_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 112
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(113): object "s_rdata_b_rx_ram" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 113
+Warning (10036): Verilog HDL or VHDL warning at top_debug.vhd(115): object "s_pattern_detected" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 115
+Info (12128): Elaborating entity "rx_uart" for hierarchy "rx_uart:i_rx_uart_inst_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 132
 Warning (10036): Verilog HDL or VHDL warning at rx_uart.vhd(60): object "start_cnt" assigned a value but never read File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/uart_pinball/sources/rx_uart.vhd Line: 60
-Info (12128): Elaborating entity "w_ram_manager" for hierarchy "w_ram_manager:i_w_ram_manager_rx_uart_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 137
-Warning (10541): VHDL Signal Declaration warning at w_ram_manager.vhd(37): used implicit default value for signal "o_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd Line: 37
-Info (12128): Elaborating entity "tdpram_sclk" for hierarchy "tdpram_sclk:i_tdpram_sclk_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 152
-Info (17049): 41 registers lost all their fanouts during netlist optimizations.
+Info (12128): Elaborating entity "w_ram_manager" for hierarchy "w_ram_manager:i_w_ram_manager_rx_uart_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 151
+Info (12128): Elaborating entity "tdpram_sclk" for hierarchy "tdpram_sclk:i_tdpram_sclk_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 166
+Info (12128): Elaborating entity "pattern_detector" for hierarchy "pattern_detector:i_pattern_detector_0" File: B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd Line: 184
+Info (17049): 33 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
@@ -487,9 +513,9 @@ Info (21057): Implemented 3 device resources after synthesis - the final resourc
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 0 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4797 megabytes
-    Info: Processing ended: Sun Feb 16 19:21:51 2020
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 4798 megabytes
+    Info: Processing ended: Mon Feb 17 21:52:38 2020
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:24
 
 

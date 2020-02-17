@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, B:/Documents/GitHub/VHDL_code/MISC/pattern_detector.vhd
 source_file = 1, B:/Documents/GitHub/VHDL_code/RAM/TDPRAM/tdpram_sclk.vhd
 source_file = 1, B:/Documents/GitHub/VHDL_code/RAM/RAM_MANAGER/w_ram_manager.vhd
 source_file = 1, B:/Documents/GitHub/Pinball_Project/Design_FPGA/top_debug/top_debug.vhd
