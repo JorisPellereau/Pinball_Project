@@ -6,7 +6,7 @@
 -- Author     :   <JorisP@DESKTOP-LO58CMN>
 -- Company    : 
 -- Created    : 2020-02-16
--- Last update: 2020-02-17
+-- Last update: 2020-02-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -35,9 +35,10 @@ architecture behv of tb_top_debug is
   -- COMPONENTS
   component top_debug is
     port (
-      clk       : in std_logic;         -- System Clock
-      rst_n     : in std_logic;         -- Asynchronous reset
-      i_rx_uart : in std_logic);        -- Input RX UART LINK
+      clk       : in  std_logic;        -- System Clock
+      rst_n     : in  std_logic;        -- Asynchronous reset
+      i_rx_uart : in  std_logic;        -- Input RX UART LINK
+      o_tx_uart : out std_logic);       -- Output TX UART LINK
   end component top_debug;
 
 
@@ -83,7 +84,7 @@ architecture behv of tb_top_debug is
     ) is
 
   begin  -- procedure proc_send_rd_cmd
-    
+
     for v_i in 0 to 6 loop
 
       s_tx_data  <= v_read_cmd(v_i);
@@ -108,7 +109,8 @@ architecture behv of tb_top_debug is
   signal s_tx_uart  : std_logic;
   signal s_tx_done  : std_logic;
 
-  signal s_rx_uart : std_logic;
+  signal s_rx_uart     : std_logic;
+  signal s_tx_uart_top : std_logic;
 
 begin  -- architecture behv
 
@@ -142,7 +144,7 @@ begin  -- architecture behv
     proc_rd_cmd(v_id, v_addr, v_read_cmd);
     proc_send_rd_cmd(v_read_cmd, i, clk, s_tx_done, s_tx_data, s_start_tx);
 
-    
+
     proc_send_rd_cmd(v_read_cmd, i, clk, s_tx_done, s_tx_data, s_start_tx);
 
     -- v_array_tx_data := (others => (others => '1'));
@@ -203,7 +205,8 @@ begin  -- architecture behv
     port map(
       clk       => clk,
       rst_n     => rst_n,
-      i_rx_uart => s_rx_uart);
+      i_rx_uart => s_rx_uart,
+      o_tx_uart => s_tx_uart_top);
 
   s_rx_uart <= s_tx_uart;
 

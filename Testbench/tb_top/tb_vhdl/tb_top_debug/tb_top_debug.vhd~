@@ -6,7 +6,7 @@
 -- Author     :   <JorisP@DESKTOP-LO58CMN>
 -- Company    : 
 -- Created    : 2020-02-16
--- Last update: 2020-02-16
+-- Last update: 2020-02-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -83,10 +83,11 @@ architecture behv of tb_top_debug is
     ) is
 
   begin  -- procedure proc_send_rd_cmd
-
+    
     for v_i in 0 to 6 loop
 
       s_tx_data  <= v_read_cmd(v_i);
+      wait until falling_edge(clk);
       wait until falling_edge(clk);
       s_start_tx <= '1', '0' after 6*C_HALF_PERIOD;
       wait until rising_edge(s_tx_done);
@@ -141,6 +142,8 @@ begin  -- architecture behv
     proc_rd_cmd(v_id, v_addr, v_read_cmd);
     proc_send_rd_cmd(v_read_cmd, i, clk, s_tx_done, s_tx_data, s_start_tx);
 
+    
+    proc_send_rd_cmd(v_read_cmd, i, clk, s_tx_done, s_tx_data, s_start_tx);
 
     -- v_array_tx_data := (others => (others => '1'));
     -- --v_tx_data       := s_array_tx_data(0);
@@ -169,7 +172,7 @@ begin  -- architecture behv
     -- end loop;  -- i < 2**C_TX_DATA_WIDTH - 1
 
 
-    wait for 10 us;
+    wait for 100 us;
     report "end of simulation !!!!!";
 
     wait;

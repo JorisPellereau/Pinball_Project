@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "02/17/2020 21:52:58"
+-- DATE "02/18/2020 19:34:44"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -78,14 +78,16 @@ ENTITY 	top_debug IS
     PORT (
 	clk : IN std_logic;
 	rst_n : IN std_logic;
-	i_rx_uart : IN std_logic
+	i_rx_uart : IN std_logic;
+	o_tx_uart : OUT std_logic
 	);
 END top_debug;
 
 -- Design Ports Information
--- clk	=>  Location: PIN_L13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- rst_n	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- i_rx_uart	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- o_tx_uart	=>  Location: PIN_R5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- i_rx_uart	=>  Location: PIN_M10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- clk	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- rst_n	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF top_debug IS
@@ -101,9 +103,11 @@ SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
 SIGNAL ww_rst_n : std_logic;
 SIGNAL ww_i_rx_uart : std_logic;
+SIGNAL ww_o_tx_uart : std_logic;
+SIGNAL \i_rx_uart~input_o\ : std_logic;
 SIGNAL \clk~input_o\ : std_logic;
 SIGNAL \rst_n~input_o\ : std_logic;
-SIGNAL \i_rx_uart~input_o\ : std_logic;
+SIGNAL \o_tx_uart~output_o\ : std_logic;
 
 COMPONENT hard_block
     PORT (
@@ -117,6 +121,7 @@ BEGIN
 ww_clk <= clk;
 ww_rst_n <= rst_n;
 ww_i_rx_uart <= i_rx_uart;
+o_tx_uart <= ww_o_tx_uart;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
@@ -126,7 +131,30 @@ PORT MAP (
 	devclrn => ww_devclrn,
 	devpor => ww_devpor);
 
--- Location: IOIBUF_X53_Y10_N15
+-- Location: IOOBUF_X14_Y0_N23
+\o_tx_uart~output\ : cycloneive_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false")
+-- pragma translate_on
+PORT MAP (
+	i => VCC,
+	devoe => ww_devoe,
+	o => \o_tx_uart~output_o\);
+
+-- Location: IOIBUF_X43_Y0_N22
+\i_rx_uart~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_i_rx_uart,
+	o => \i_rx_uart~input_o\);
+
+-- Location: IOIBUF_X49_Y34_N8
 \clk~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -137,7 +165,7 @@ PORT MAP (
 	i => ww_clk,
 	o => \clk~input_o\);
 
--- Location: IOIBUF_X49_Y34_N8
+-- Location: IOIBUF_X38_Y0_N8
 \rst_n~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -148,16 +176,7 @@ PORT MAP (
 	i => ww_rst_n,
 	o => \rst_n~input_o\);
 
--- Location: IOIBUF_X40_Y34_N8
-\i_rx_uart~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_i_rx_uart,
-	o => \i_rx_uart~input_o\);
+ww_o_tx_uart <= \o_tx_uart~output_o\;
 END structure;
 
 

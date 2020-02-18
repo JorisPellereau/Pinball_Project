@@ -6,7 +6,7 @@
 -- Author     :   <JorisP@DESKTOP-LO58CMN>
 -- Company    : 
 -- Created    : 2020-02-16
--- Last update: 2020-02-16
+-- Last update: 2020-02-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -75,6 +75,18 @@ architecture behv of top_debug is
       );
   end component tdpram_sclk;
 
+  component pattern_detector is
+    generic (
+      G_DATA_WIDTH   : integer              := 8;   -- INPUT DATA WIDTH
+      G_PATTERN_SIZE : integer range 2 to 3 := 3);  -- Number of Symbol in the pattern    
+    port (
+      clk                : in  std_logic;           -- Clock
+      rst_n              : in  std_logic;           -- Asynchronous Reset
+      i_data             : in  std_logic_vector(G_DATA_WIDTH - 1 downto 0);  -- Input Data
+      i_data_valid       : in  std_logic;           -- Data Valid
+      o_pattern_detected : out std_logic);          -- Pattern Detected flag
+  end component;
+
   -- CONSTANTS
   constant C_RX_DATA_WIDTH  : integer := 8;  -- RX DATA WIDTH
   constant C_ADDR_RAM_WIDTH : integer := 8;  -- RAM ADDR WIDTH
@@ -99,6 +111,8 @@ architecture behv of top_debug is
   signal s_me_b_rx_ram    : std_logic;  -- ME RX RAM PORT A
   signal s_we_b_rx_ram    : std_logic;  -- WE RX RAM PORT A
   signal s_rdata_b_rx_ram : std_logic_vector(C_RX_DATA_WIDTH - 1 downto 0);
+
+  signal s_pattern_detected : std_logic;
 
 begin  -- architecture behv
 
@@ -166,5 +180,16 @@ begin  -- architecture behv
       i_wdata_b => s_data_b_rx_ram,
       o_rdata_b => s_rdata_b_rx_ram);
 
+  -- PATTERN DETECTOR INST
+  i_pattern_detector_0 : pattern_detector
+    generic map (
+      G_DATA_WIDTH   => 8,
+      G_PATTERN_SIZE => 3)
+    port map(
+      clk                => clk,
+      rst_n              => rst_n,
+      i_data             => s_rx_data,
+      i_data_valid       => s_me_a_rx_ram,
+      o_pattern_detected => s_pattern_detected);
 
 end architecture behv;

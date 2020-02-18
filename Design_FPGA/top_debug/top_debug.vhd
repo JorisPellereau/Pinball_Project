@@ -6,7 +6,7 @@
 -- Author     :   <JorisP@DESKTOP-LO58CMN>
 -- Company    : 
 -- Created    : 2020-02-16
--- Last update: 2020-02-17
+-- Last update: 2020-02-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -29,9 +29,10 @@ use lib_uart.pkg_uart.all;
 entity top_debug is
 
   port (
-    clk       : in std_logic;           -- System Clock
-    rst_n     : in std_logic;           -- Asynchronous reset
-    i_rx_uart : in std_logic);          -- Input RX UART LINK
+    clk       : in  std_logic;          -- System Clock
+    rst_n     : in  std_logic;          -- Asynchronous reset
+    i_rx_uart : in  std_logic;          -- Input RX UART LINK
+    o_tx_uart : out std_logic);         -- Output TX UART LINK
 
 end entity top_debug;
 
@@ -99,6 +100,11 @@ architecture behv of top_debug is
 
   signal s_rx_uart   : std_logic;       -- META RX UART
   signal s_rx_uart_p : std_logic;       -- STABLE RX UART
+
+  signal s_start_tx : std_logic;        -- START TX
+  signal s_tx_data  : std_logic_vector(C_RX_DATA_WIDTH - 1 downto 0);
+  signal s_tx_uart  : std_logic;        -- TX LINK
+  signal s_tx_done  : std_logic;        -- TX DONE
 
   signal s_addr_a_rx_ram  : std_logic_vector(C_ADDR_RAM_WIDTH - 1 downto 0);
   signal s_data_a_rx_ram  : std_logic_vector(C_RX_DATA_WIDTH - 1 downto 0);
@@ -192,4 +198,23 @@ begin  -- architecture behv
       i_data_valid       => s_me_a_rx_ram,
       o_pattern_detected => s_pattern_detected);
 
+  -- TX UART INST
+  i_tx_uart_0 : tx_uart
+    generic map (
+      stop_bit_number => 1,
+      parity          => even,
+      baudrate        => b115200,
+      data_size       => C_RX_DATA_WIDTH,
+      polarity        => '1',
+      first_bit       => lsb_first,
+      clock_frequency => 50000000)
+    port map (
+      reset_n  => rst_n,
+      clock    => clk,
+      start_tx => s_start_tx,
+      tx_data  => s_tx_data,
+      tx       => s_tx_uart,
+      tx_done  => s_tx_done);           -- Transaction done
+
+  o_tx_uart <= s_tx_uart;
 end architecture behv;

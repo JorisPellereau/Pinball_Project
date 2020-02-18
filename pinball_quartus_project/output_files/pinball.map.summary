@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Mon Feb 17 21:52:38 2020
+Analysis & Synthesis Status : Successful - Tue Feb 18 19:34:26 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : pinball
 Top-level Entity Name : top_debug
@@ -7,7 +7,7 @@ Total logic elements : 0
     Total combinational functions : 0
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 3
+Total pins : 4
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
