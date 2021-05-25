@@ -87,6 +87,17 @@ class uart_max7219_ctrl_class:
 
 
 
+    # INIT_STATIC_RAM command
+    def init_static_ram(self):
+        check = self.uart_send_cmd_and_check(self.UART_CMD["INIT_RAM_STATIC"], self.UART_RESP["RAM_STATIC_DONE"])
+
+
+    # INIT_SCROLLER_RAM command
+    def init_scroll_ram(self):
+        check = self.uart_send_cmd_and_check(self.UART_CMD["INIT_RAM_SCROLLER"], self.UART_RESP["RAM_SCROLLER_DONE"])
+
+    
+
     # LOAD MATRIX CONFIG
     def load_matrix_config(self, DISPLAY_TEST, DECODE_MODE, SCAN_LIMIT, INTENSITY, SHUTDOWN):
 
@@ -106,7 +117,7 @@ class uart_max7219_ctrl_class:
     def update_matrix_config(self):
 
         # Send UPDATE_MATRIX_CONFIG and check result
-        check = self.uart_send_cmd_and_check(self.UART_CMD["UPDATE_MATRIX_CMD"], self.UART_RESP["UPDATE_MATRIX_DONE"])
+        check = self.uart_send_cmd_and_check(self.UART_CMD["UPDATE_MATRIX_CONFIG"], self.UART_RESP["UPDATE_MATRIX_DONE"])
 
         if(check == True):
             print("UPDATE_MATRIX_DONE received !")
@@ -117,3 +128,5 @@ class uart_max7219_ctrl_class:
     # Close UART
     def close_uart(self):
         self.uart_inst.close_uart_com()
+
+        
