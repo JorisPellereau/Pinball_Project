@@ -3,6 +3,7 @@
 #
 
 import sys
+import numpy as np
 
 from uart_class import *
 
@@ -48,6 +49,13 @@ class uart_max7219_ctrl_class:
     SCAN_LIMIT   = 0x00
     INTENSITY    = 0x00
     SHUTDOWN     = 0x00
+
+
+    # TESTS PATTERNS
+    test_pattern_ones = np.ones((8, 63))
+
+    
+
     
     # Constructor
     def __init__(self,
@@ -125,8 +133,41 @@ class uart_max7219_ctrl_class:
             print("UPDATE_MATRIX_CONFIG Error !")
 
 
+
+
+    # LOAD PATTERN STATIC
+    # pattern_static_data
+    # Data to send : Byte(0) = Start @
+    # Byte(1)    => Byte(128) = DAta to load in RAM
+    # Byte(odd)  = MSB[15:8] of RAM DATA
+    # Byte(even) = LSB[7:0] of RAM DATA
+    def load_pattern_static(self, pattern_static_data):
+
+        # Send LOAD_PATTERN_STATIC command and check if FPGA is ready
+        check = self.uart_send_cmd_and_check(self.UART_CMD["LOAD_PATTERN_STATIC"], self.UART_RESP["LOAD_STATIC_RDY"])
+
+        if(check == True):
+            print("LOAD_STATIC_RDY received !")
+
+            # Send Load STATIC Pattern
+            check = self.uart_send_cmd_and_check(pattern_static_data, self.UART_RESP["LOAD_STATIC_DONE"])
+
+            if(check == True):
+                print("LOAD_STATIC_DONE reveived !")
+            else:
+                print("LOAD_STATIC_PATTERN Error !")
+                
+        else:
+            print("LOAD_PATTERN_STATIC Error !")
+
+        
     # Close UART
     def close_uart(self):
         self.uart_inst.close_uart_com()
 
         
+
+
+    # DEBUG
+    def display_tests_patterns(self):
+        print(self.test_pattern_ones)
