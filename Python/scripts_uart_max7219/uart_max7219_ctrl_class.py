@@ -160,7 +160,55 @@ class uart_max7219_ctrl_class:
         else:
             print("LOAD_PATTERN_STATIC Error !")
 
+    # RUN PATTERN STATIC
+    # start_ptr/last_ptr = integer in hexa on 8 bits
+    def run_pattern_static(self, start_ptr, last_ptr):
+        check = self.uart_send_cmd_and_check(self.UART_CMD["RUN_PATTERN_STATIC"], self.UART_RESP["STATIC_PTRN_RDY"])
+
+        if(check == True):
+            print("STATIC_PTRN_RDY received !")
+
+            # Convert start_ptr and last_ptr
+            # TBD error data_tmp            = str(format(start_ptr, "02x")) + str(format(last_ptr, "02x"))
+            pattern_static_data = bytearray.fromhex(data_tmp)
+            
+            check = self.uart_send_cmd_and_check(pattern_static_data, self.UART_RESP["STATIC_PTRN_DONE"])
+            
+            if(check == True):
+                print("STATIC_PTRN_DONE received !")
+            else:
+                print("LOAD START AND LAST PTR STATIC Error !")
+                
+        else:
+            print("RUN_PATTERN_STATIC Error !")
+
+
+
+
+
+    # LOAD PATTERN SCROLLER
+    # start_ptr = An integer on 8 bits
+    # msg_length = An integer on 8 bits
+    def load_pattern_scroller(self, start_ptr, msg_length):
+
+        check = self.uart_send_cmd_and_check(self.UART_CMD["LOAD_PATTERN_SCROLL"], self.UART_RESP["LOAD_SCROLL_RDY"])
+
         
+        if(check == True):
+            print("LOAD_SCROLL_RDY received !")
+
+            data_tmp = str(format(start_ptr, "02x")) + str(format(msg_length, "02x"))
+            pattern_scroll_data = bytearray/fromhex(data_tmp)
+            
+            check = self.uart_send_cmd_and_check(pattern_scroll_data, self.UART_RESP["SCROLL_PTRN_DONE"])
+
+            if(check == True):
+                print("SCROLL_PTRN_DONE received !")
+            else:
+                print("LOAD START PTR AND MSG LENGTH Error !")
+        else:
+            print("LOAD_PATTERN_SCROLL Error !")
+            
     # Close UART
     def close_uart(self):
         self.uart_inst.close_uart_com()
