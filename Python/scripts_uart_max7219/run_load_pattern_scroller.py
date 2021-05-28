@@ -22,10 +22,10 @@ for i in range(0, 128):
 
 data_tmp = bytearray.fromhex(data_tmp)
 
-pattern_static_data = "\0" + data_tmp
+pattern_scroller_data = "\0" + data_tmp
 
-print(pattern_static_data)
-print("len(pattern_static_data) : %d" %(len(pattern_static_data)) )
+print(pattern_scroller_data)
+print("len(pattern_scroller_data) : %d" %(len(pattern_scroller_data)) )
     
-uart_rpi.load_pattern_static(pattern_static_data)
+uart_rpi.load_pattern_scroller(start_ptr, msg_length, pattern_scroller_data)
 uart_rpi.close_uart()

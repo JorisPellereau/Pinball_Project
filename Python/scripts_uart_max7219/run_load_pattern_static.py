@@ -4,9 +4,12 @@
 
 
 import sys
+import numpy as np
+
 from uart_max7219_ctrl_class import *
 
 
+start_ptr = int(sys.argv[1])
 
 
 uart_rpi = uart_max7219_ctrl_class(baudrate = 230400)
@@ -16,17 +19,24 @@ uart_rpi = uart_max7219_ctrl_class(baudrate = 230400)
 
 
 
-data_tmp = ""
-for i in range(0, 128):
-    data_tmp = data_tmp + str(format(i, "02x"))
+# Data Array creation
+matrix_line = []
+matrix = []
+for j in range(0, 8):
+    matrix_line = []
+    for i in range(0, 64):
+        matrix_line.append(0)
+    matrix.append(matrix_line)
 
+matrix_array = np.array(matrix)
 
-data_tmp = bytearray.fromhex(data_tmp)
+print(matrix_array)
 
-pattern_static_data = "\0" + data_tmp
+static_pattern_data = uart_rpi.matrix_2_static_pattern(matrix_array)
 
-print(pattern_static_data)
-print("len(pattern_static_data) : %d" %(len(pattern_static_data)) )
+print("static_pattern_data : %s" %(static_pattern_data) )
+
+print("len(static_pattern_data) : %d" %(len(static_pattern_data)) )
     
-uart_rpi.load_pattern_static(pattern_static_data)
+uart_rpi.load_pattern_static(start_ptr, static_pattern_data)
 uart_rpi.close_uart()
