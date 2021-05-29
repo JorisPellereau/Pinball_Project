@@ -158,15 +158,26 @@ class uart_max7219_ctrl_class:
         if(check == True):
             print("LOAD_STATIC_RDY received !")
 
-            data_tmp = ""
+            data_int_tmp = []
             # Convert Integer array list to Byte data to send by UART
+            print("len(pattern_static_data) : %d" %(len(pattern_static_data)))
+
+            # Convert Data Matrix on 16bits to Data on 8 bits
             for i in range(0, len(pattern_static_data)):
-                data_tmp = data_tmp + str(format(pattern_static_data[i], "02x"))
+                data_int_tmp.append(pattern_static_data[i] & 0xFF)
+                data_int_tmp.append((pattern_static_data[i] >> 8) & 0xFF)
+#               data_int_tmp.append(pattern_static_data[i] & 0xFF)
+
+            # Convert DAta int 8 bit to STR
+            data_tmp = ""
+            for i in range(0, len(data_int_tmp)):
+                data_tmp = data_tmp + str(format(data_int_tmp[i], "02x"))
                 
+            data_to_send = ""
             data_to_send = str(format(start_ptr, "02x")) + data_tmp
 
             data_to_send = bytearray.fromhex(data_to_send)
-            print("len(data_to_send) : %d" %(len(data_to_send)) )
+            print("data_to_send : %s -  len(data_to_send) : %d" %(data_to_send, len(data_to_send)) )
             
             # Send Load STATIC Pattern
             check = self.uart_send_cmd_and_check(data_to_send, self.UART_RESP["LOAD_STATIC_DONE"])
@@ -179,6 +190,7 @@ class uart_max7219_ctrl_class:
         else:
             print("LOAD_PATTERN_STATIC Error !")
 
+            
     # RUN PATTERN STATIC
     # start_ptr/last_ptr = integer in hexa on 8 bits
     def run_pattern_static(self, start_ptr, last_ptr):
@@ -188,10 +200,10 @@ class uart_max7219_ctrl_class:
             print("STATIC_PTRN_RDY received !")
 
             # Convert start_ptr and last_ptr
-            # TBD error data_tmp            = str(format(start_ptr, "02x")) + str(format(last_ptr, "02x"))
-            pattern_static_data = bytearray.fromhex(data_tmp)
+            data_tmp            = str(format(start_ptr, "02x")) + str(format(last_ptr, "02x"))
+            data_to_send = bytearray.fromhex(data_tmp)
             
-            check = self.uart_send_cmd_and_check(pattern_static_data, self.UART_RESP["STATIC_PTRN_DONE"])
+            check = self.uart_send_cmd_and_check(data_to_send, self.UART_RESP["STATIC_PTRN_DONE"])
             
             if(check == True):
                 print("STATIC_PTRN_DONE received !")
@@ -330,3 +342,6 @@ class uart_max7219_ctrl_class:
     # DEBUG
     def display_tests_patterns(self):
         print(self.test_pattern_ones)
+
+
+        
