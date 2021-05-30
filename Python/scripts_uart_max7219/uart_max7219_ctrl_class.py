@@ -164,11 +164,11 @@ class uart_max7219_ctrl_class:
 
             # Convert Data Matrix on 16bits to Data on 8 bits
             for i in range(0, len(pattern_static_data)):
-                data_int_tmp.append(pattern_static_data[i] & 0xFF)
+                #data_int_tmp.append(pattern_static_data[i] & 0xFF)
                 data_int_tmp.append((pattern_static_data[i] >> 8) & 0xFF)
-#               data_int_tmp.append(pattern_static_data[i] & 0xFF)
+                data_int_tmp.append(pattern_static_data[i] & 0xFF)
 
-            # Convert DAta int 8 bit to STR
+            # Convert Data int 8 bit to STR
             data_tmp = ""
             for i in range(0, len(data_int_tmp)):
                 data_tmp = data_tmp + str(format(data_int_tmp[i], "02x"))
@@ -220,8 +220,8 @@ class uart_max7219_ctrl_class:
     # LOAD PATTERN SCROLLER
     # start_ptr = An integer on 8 bits
     # msg_length = An integer on 8 bits
-    # pattern_data  - TBD
-    def load_pattern_scroller(self, start_ptr, msg_length, pattern_data):
+    # pattern_scroller_data : A list with Dater per Digit
+    def load_pattern_scroller(self, start_ptr, msg_length, pattern_scroller_data):
 
         check = self.uart_send_cmd_and_check(self.UART_CMD["LOAD_PATTERN_SCROLL"], self.UART_RESP["LOAD_SCROLL_RDY"])
 
@@ -229,9 +229,19 @@ class uart_max7219_ctrl_class:
         if(check == True):
             print("LOAD_SCROLL_RDY received !")
 
-
+            # Start PTR and MSG length to STR
             data_tmp = str(format(start_ptr, "02x")) + str(format(msg_length, "02x"))
-            pattern_scroll_data = bytearray.fromhex(data_tmp) + bytearray.fromhex(str(format(pattern_data, "02x")))
+
+            # Convert PAttern scroller to a STR
+            data_int_tmp = ""
+            for i in range(0, len(pattern_scroller_data)):
+                data_int_tmp = data_int_tmp + str(format(pattern_scroller_data[i], "02x"))
+
+
+            # Convert all data to UART format
+            pattern_scroll_data = bytearray.fromhex(data_tmp) + bytearray.fromhex(data_int_tmp)
+            print("len(pattern_scroll_data) : %d" %(len(pattern_scroll_data)) )
+            
             check = self.uart_send_cmd_and_check(pattern_scroll_data, self.UART_RESP["LOAD_SCROLL_DONE"])
 
             if(check == True):
@@ -246,14 +256,14 @@ class uart_max7219_ctrl_class:
     # RUN PATTERN SCROLLER
     def run_pattern_scroller(self, start_ptr, msg_length):
 
-        check = self.uart_send_cmd_and_check(self.UART_CMD["RUN_PTRN_SCROLLER"], self.UART_RESP["SCROLL_PTRN_RDY"])
+        check = self.uart_send_cmd_and_check(self.UART_CMD["RUN_PATTERN_SCROLLER"], self.UART_RESP["SCROLL_PTRN_RDY"])
 
         if(check == True):
             print("SCROLL_PTRN_DONE received !")
-        else:
+            
 
             data_tmp = str(format(start_ptr, "02x")) + str(format(msg_length, "02x"))
-            run_data = bytearray.formhex(data_tmp)
+            run_data = bytearray.fromhex(data_tmp)
 
             check = self.uart_send_cmd_and_check(run_data, self.UART_RESP["SCROLL_PTRN_DONE"])
 
@@ -261,6 +271,9 @@ class uart_max7219_ctrl_class:
                 print("SCROLL_PTRN_DONE received !")
             else:
                 print("Run PATTERN SCROLLER Error !")
+
+        else:
+            print("RUN PATTERN SCROLLER Error !")
 
 
 
