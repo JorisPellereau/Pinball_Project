@@ -25,7 +25,7 @@ matrix = []
 for j in range(0, 8):
     matrix_line = []
     for i in range(0, 64):
-        matrix_line.append(0)
+        matrix_line.append(1)
     matrix.append(matrix_line)
 
 matrix_array = np.array(matrix)
