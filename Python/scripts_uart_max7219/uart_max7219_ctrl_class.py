@@ -24,7 +24,7 @@ class uart_max7219_ctrl_class:
     UART_CMD["LOAD_PATTERN_SCROLL"]  = "LOAD_PATTERN_SCROLL\0"
     UART_CMD["RUN_PATTERN_STATIC"]   = "RUN_PATTERN_STATIC\0\0"
     UART_CMD["RUN_PATTERN_SCROLLER"] = "RUN_PATTERN_SCROLLER"
-
+    UART_CMD["LOAD_SCROLLER_TEMPO"]  = "LOAD_SCROLLER_TEMPO\0"
 
     UART_RESP = dict()
     UART_RESP["RAM_STATIC_DONE"]     = "RAM_STATIC_DONE\0\0\0\0\0"
@@ -45,7 +45,9 @@ class uart_max7219_ctrl_class:
     UART_RESP["SCROLL_PTRN_RDY"]     = "SCROLL_PTRN_RDY\0\0\0\0\0"
     UART_RESP["SCROLL_PTRN_NOT_RDY"] = "SCROLL_PTRN_NOT_RDY\0"
     UART_RESP["SCROLL_PTRN_DONE"]    = "SCROLL_PTRN_DONE\0\0\0\0"
-
+    UART_RESP["LOAD_TEMPO_RDY"]      = "LOAD_TEMPO_RDY\0\0\0\0\0"
+    UART_RESP["LOAD_TEMPO_NOT_RDY"]  = "LOAD_TEMPO_NOT_RDY\0"
+    UART_RESP["LOAD_TEMPO_DONE"]     = "LOAD_TEMPO_DONE\0\0\0\0"
 
     # Config. Matrix Registers
     DISPLAY_TEST = 0
@@ -276,6 +278,18 @@ class uart_max7219_ctrl_class:
             print("RUN PATTERN SCROLLER Error !")
 
 
+    # Run LOAD_SCROLLER_TEMPO
+    # DAta_tempo : an integer on 32 bits
+    def run_load_scroller_tempo(self, data_tempo):
+        check = self.uart_send_cmd_and_check(self.UART_CMD["LOAD_SCROLLER_TEMPO"], self.UART_RESP["LOAD_TEMPO_RDY"])
+
+        if(chech == True):
+            print("LOAD_TEMPO_RDY received !")
+            # TBD a terminer !!
+
+            
+        else:
+            print("RUN LOAD_SCROLLER_TEMPO Error !")
 
     # Resynch. UART communication
     # Send Data until the reception of CMD_DISCARD respons
