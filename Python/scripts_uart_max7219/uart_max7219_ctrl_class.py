@@ -283,14 +283,23 @@ class uart_max7219_ctrl_class:
     def run_load_scroller_tempo(self, data_tempo):
         check = self.uart_send_cmd_and_check(self.UART_CMD["LOAD_SCROLLER_TEMPO"], self.UART_RESP["LOAD_TEMPO_RDY"])
 
-        if(chech == True):
+        if(check == True):
             print("LOAD_TEMPO_RDY received !")
-            # TBD a terminer !!
-
             
+            data_tmp = str(format( (data_tempo >> 0xFFFFFF) & 0xFF , "02x")) + str(format( (data_tempo >> 0xFFFF) & 0xFF , "02x"))  
+            data_tmp = data_tmp + str(format( (data_tempo >> 0xFF) & 0xFF , "02x")) + str(format( (data_tempo) & 0xFF , "02x"))  
+
+            run_data = bytearray.fromhex(data_tmp)
+            check = self.uart_send_cmd_and_check(run_data, self.UART_RESP["LOAD_TEMPO_DONE"])
+
+            if(check == True):
+                print("LOAD_TEMPO_DONE received !")
+            else:
+                print("LOAD_TEMPO_DONE Error !")
         else:
             print("RUN LOAD_SCROLLER_TEMPO Error !")
 
+            
     # Resynch. UART communication
     # Send Data until the reception of CMD_DISCARD respons
     def resynch_com_uart(self):
