@@ -45,9 +45,9 @@ class uart_max7219_ctrl_class:
     UART_RESP["SCROLL_PTRN_RDY"]     = "SCROLL_PTRN_RDY\0\0\0\0\0"
     UART_RESP["SCROLL_PTRN_NOT_RDY"] = "SCROLL_PTRN_NOT_RDY\0"
     UART_RESP["SCROLL_PTRN_DONE"]    = "SCROLL_PTRN_DONE\0\0\0\0"
-    UART_RESP["LOAD_TEMPO_RDY"]      = "LOAD_TEMPO_RDY\0\0\0\0\0"
+    UART_RESP["LOAD_TEMPO_RDY"]      = "LOAD_TEMPO_RDY\0\0\0\0\0\0"
     UART_RESP["LOAD_TEMPO_NOT_RDY"]  = "LOAD_TEMPO_NOT_RDY\0"
-    UART_RESP["LOAD_TEMPO_DONE"]     = "LOAD_TEMPO_DONE\0\0\0\0"
+    UART_RESP["LOAD_TEMPO_DONE"]     = "LOAD_TEMPO_DONE\0\0\0\0\0"
 
     # Config. Matrix Registers
     DISPLAY_TEST = 0
@@ -58,7 +58,7 @@ class uart_max7219_ctrl_class:
 
 
     # TESTS PATTERNS
-    test_pattern_ones = np.ones((8, 63))
+    test_pattern_ones = np.ones((8, 63), int)
 
     
     # ================
@@ -84,7 +84,7 @@ class uart_max7219_ctrl_class:
         # == UART RPi FUNCTIONS ==
         # ========================
 
-# Start a command and wait check response
+    # Start a command and wait check response
     # Default Size of response : 20 bytes
     def uart_send_cmd_and_check(self, data_2_send, data_2_check, data_2_check_size = 20):
         check = False
@@ -290,7 +290,7 @@ class uart_max7219_ctrl_class:
             data_tmp = data_tmp + str(format( (data_tempo >> 0xFF) & 0xFF , "02x")) + str(format( (data_tempo) & 0xFF , "02x"))  
 
             run_data = bytearray.fromhex(data_tmp)
-            check = self.uart_send_cmd_and_check(run_data, self.UART_RESP["LOAD_TEMPO_DONE"])
+            check    = self.uart_send_cmd_and_check(run_data, self.UART_RESP["LOAD_TEMPO_DONE"])
 
             if(check == True):
                 print("LOAD_TEMPO_DONE received !")

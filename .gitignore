@@ -32,6 +32,8 @@
 *.dSYM/
 *.su
 
+*.pyc
+
 Design_FPGA/top_pinball/pkg_pinball.vhd~
 
 Design_FPGA/top_pinball/top_pinball.vhd~
