@@ -286,10 +286,12 @@ class uart_max7219_ctrl_class:
         if(check == True):
             print("LOAD_TEMPO_RDY received !")
             
-            data_tmp = str(format( (data_tempo >> 0xFFFFFF) & 0xFF , "02x")) + str(format( (data_tempo >> 0xFFFF) & 0xFF , "02x"))  
-            data_tmp = data_tmp + str(format( (data_tempo >> 0xFF) & 0xFF , "02x")) + str(format( (data_tempo) & 0xFF , "02x"))  
+            data_tmp = str(format( (data_tempo >> 24) & 0xFF , "02x")) + str(format( (data_tempo >> 16) & 0xFF , "02x"))  
+            data_tmp = data_tmp + str(format( (data_tempo >> 8) & 0xFF , "02x")) + str(format( (data_tempo) & 0xFF , "02x"))  
 
+            print("data_tmp : %s" %(data_tmp) )
             run_data = bytearray.fromhex(data_tmp)
+            print("DEBUG - run_data : %s" %(run_data))
             check    = self.uart_send_cmd_and_check(run_data, self.UART_RESP["LOAD_TEMPO_DONE"])
 
             if(check == True):
